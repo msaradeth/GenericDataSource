@@ -14,6 +14,9 @@
 		0EEEEEF822C5BEF600DB7F38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEEEEF622C5BEF600DB7F38 /* LaunchScreen.storyboard */; };
 		0EEEEF0322C5BEF700DB7F38 /* GenDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEF0222C5BEF700DB7F38 /* GenDataSourceTests.swift */; };
 		0EEEEF0E22C5BEF700DB7F38 /* GenDataSourceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEF0D22C5BEF700DB7F38 /* GenDataSourceUITests.swift */; };
+		0EEEEF1C22C5C06400DB7F38 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEF1B22C5C06400DB7F38 /* Extensions.swift */; };
+		0EEEEF1E22C5C22C00DB7F38 /* MasterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEF1D22C5C22C00DB7F38 /* MasterCell.swift */; };
+		0EEEEF2022C5C7A800DB7F38 /* GenDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEF1F22C5C7A800DB7F38 /* GenDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		0EEEEF0922C5BEF700DB7F38 /* GenDataSourceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenDataSourceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EEEEF0D22C5BEF700DB7F38 /* GenDataSourceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenDataSourceUITests.swift; sourceTree = "<group>"; };
 		0EEEEF0F22C5BEF700DB7F38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EEEEF1B22C5C06400DB7F38 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0EEEEF1D22C5C22C00DB7F38 /* MasterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCell.swift; sourceTree = "<group>"; };
+		0EEEEF1F22C5C7A800DB7F38 /* GenDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 				0EEEEEF422C5BEF600DB7F38 /* Assets.xcassets */,
 				0EEEEEF622C5BEF600DB7F38 /* LaunchScreen.storyboard */,
 				0EEEEEF922C5BEF600DB7F38 /* Info.plist */,
+				0EEEEF1B22C5C06400DB7F38 /* Extensions.swift */,
+				0EEEEF1D22C5C22C00DB7F38 /* MasterCell.swift */,
+				0EEEEF1F22C5C7A800DB7F38 /* GenDataSource.swift */,
 			);
 			path = GenDataSource;
 			sourceTree = "<group>";
@@ -257,7 +266,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EEEEEF022C5BEF500DB7F38 /* ViewController.swift in Sources */,
+				0EEEEF1C22C5C06400DB7F38 /* Extensions.swift in Sources */,
 				0EEEEEEE22C5BEF500DB7F38 /* AppDelegate.swift in Sources */,
+				0EEEEF2022C5C7A800DB7F38 /* GenDataSource.swift in Sources */,
+				0EEEEF1E22C5C22C00DB7F38 /* MasterCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
