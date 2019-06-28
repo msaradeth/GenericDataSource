@@ -15,7 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        var contacts: [Contact] = []
+        for ii in 0..<50 {
+            contacts.append(Contact(firstName: String("\(ii) First Name"), lastName: String("\(ii) Last Name")))
+        }
+        
+        let dataSource = GenericDataSource<Contact, MasterCell>(values: contacts)
+        let viewModel = MasterViewModel(dataSource: dataSource)
+        let vc = MasterVC(title: "Contacts", viewModel: viewModel)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.rootViewController = UINavigationController(rootViewController: vc)
+        
         return true
     }
 

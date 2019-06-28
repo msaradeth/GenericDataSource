@@ -12,24 +12,24 @@ import UIKit
 
 //GenericCell Protocol
 public protocol CellProtocol {
-    associatedtype T
+    associatedtype CellType
     static var cellIdentifier: String {get}
-    func configure(item: T)
+    func configure(item: CellType)
 }
 
 public typealias DidSelectItemCallback = (IndexPath) -> Void
 
 //Generic DataSource Class
-open class GenericDataSource<T, Cell: UICollectionViewCell>: NSObject, UICollectionViewDataSource
-    where Cell: CellProtocol, T == Cell.T {
+open class GenericDataSource<Element, Cell: UICollectionViewCell>: NSObject, UICollectionViewDataSource
+    where Cell: CellProtocol, Element == Cell.CellType {
     
     //MARK: init and setup
-    var items: [[T]]
+    var items: [[Element]]
     
-    init(values: [T]) {
+    init(values: [Element]) {
         self.items = [values]
     }
-    convenience init(values2: [[T]]) {
+    convenience init(values2: [[Element]]) {
         self.init(values: [])
         self.items = values2
     }
@@ -45,7 +45,7 @@ open class GenericDataSource<T, Cell: UICollectionViewCell>: NSObject, UICollect
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIdentifier", for: indexPath) as! Cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.cellIdentifier, for: indexPath) as! Cell
         
         cell.configure(item: items[indexPath.section][indexPath.row])
         return cell

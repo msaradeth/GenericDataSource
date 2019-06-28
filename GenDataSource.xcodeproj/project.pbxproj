@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0EEEEEEE22C5BEF500DB7F38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */; };
-		0EEEEEF022C5BEF500DB7F38 /* Master.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEEEF22C5BEF500DB7F38 /* Master.swift */; };
+		0EEEEEF022C5BEF500DB7F38 /* MasterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEEEF22C5BEF500DB7F38 /* MasterVC.swift */; };
 		0EEEEEF322C5BEF500DB7F38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEEEEF122C5BEF500DB7F38 /* Main.storyboard */; };
 		0EEEEEF522C5BEF600DB7F38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EEEEEF422C5BEF600DB7F38 /* Assets.xcassets */; };
 		0EEEEEF822C5BEF600DB7F38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEEEEF622C5BEF600DB7F38 /* LaunchScreen.storyboard */; };
@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		0EEEEEEA22C5BEF500DB7F38 /* GenDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EEEEEEF22C5BEF500DB7F38 /* Master.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Master.swift; sourceTree = "<group>"; };
+		0EEEEEEF22C5BEF500DB7F38 /* MasterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterVC.swift; sourceTree = "<group>"; };
 		0EEEEEF222C5BEF500DB7F38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EEEEEF422C5BEF600DB7F38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EEEEEF722C5BEF600DB7F38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		5E669E3722C6672D00B0C822 /* Master */ = {
 			isa = PBXGroup;
 			children = (
-				0EEEEEEF22C5BEF500DB7F38 /* Master.swift */,
+				0EEEEEEF22C5BEF500DB7F38 /* MasterVC.swift */,
 				5E669E3822C6679800B0C822 /* MasterViewModel.swift */,
 				0EEEEF1D22C5C22C00DB7F38 /* MasterCell.swift */,
 				5E669E3A22C667FC00B0C822 /* Contact.swift */,
@@ -288,7 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E669E3B22C667FC00B0C822 /* Contact.swift in Sources */,
-				0EEEEEF022C5BEF500DB7F38 /* Master.swift in Sources */,
+				0EEEEEF022C5BEF500DB7F38 /* MasterVC.swift in Sources */,
 				0EEEEF1C22C5C06400DB7F38 /* Extensions.swift in Sources */,
 				0EEEEEEE22C5BEF500DB7F38 /* AppDelegate.swift in Sources */,
 				5E669E3922C6679800B0C822 /* MasterViewModel.swift in Sources */,
@@ -469,7 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QAJNW7456U;
+				DEVELOPMENT_TEAM = LP46D328FV;
 				INFOPLIST_FILE = GenDataSource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -487,7 +487,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QAJNW7456U;
+				DEVELOPMENT_TEAM = LP46D328FV;
 				INFOPLIST_FILE = GenDataSource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
