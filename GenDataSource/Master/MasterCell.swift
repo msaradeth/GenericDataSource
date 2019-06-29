@@ -45,9 +45,9 @@ class MasterCell: UICollectionViewCell, CellProtocol {
     }
     
     func setupViews() {
-        contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
         
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding.left).isActive = true
@@ -62,19 +62,24 @@ class MasterCell: UICollectionViewCell, CellProtocol {
     }
     
     
-    //Mark Self sizing cell
+    //MARK: Self sizing cell - Calc Width and Height
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        //calc size
+        //calc cell height - contentView.systemLayoutSizeFitting
         setNeedsLayout()
         layoutIfNeeded()
         let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
-        
-        //set Height
-        layoutAttributes.size.height = size.height
+
+        //set cell height and width
+        layoutAttributes.frame.size.height = size.height
         
         return layoutAttributes
     }
+
     
+    override func prepareForReuse() {
+        titleLabel.text = nil
+        detailLabel.text = nil
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
