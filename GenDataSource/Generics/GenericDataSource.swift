@@ -24,13 +24,12 @@ open class GenericDataSource<Element, Cell: UICollectionViewCell>: NSObject, UIC
     where Cell: CellProtocol, Element == Cell.CellType {
     
     //MARK: init and setup
-    var items: [[Element]]
+    fileprivate var items: [[Element]]
     
-    init(values: [Element]) {
+    public init(values: [Element]) {
         self.items = [values]
     }
-    convenience init(values2: [[Element]]) {
-        self.init(values: [])
+    public init(values2: [[Element]]) {
         self.items = values2
     }
     
