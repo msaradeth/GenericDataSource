@@ -11,9 +11,9 @@ import UIKit
 
 
 class MasterViewModel: NSObject {
-    var dataSource: GenericDataSource<Contact, MasterCell>
+    var dataSource: GenericDataSource<Contact, MasterCell2>
     
-    init(dataSource: GenericDataSource<Contact, MasterCell>) {
+    init(dataSource: GenericDataSource<Contact, MasterCell2>) {
         self.dataSource = dataSource
     }
 }

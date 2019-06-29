@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             contacts.append(Contact(firstName: String("\(ii) First Name"), lastName: String("\(ii) Last Name")))
         }
         
-        let dataSource = GenericDataSource<Contact, MasterCell>(values: contacts)
+        let dataSource = GenericDataSource<Contact, MasterCell2>(values: contacts)
         let viewModel = MasterViewModel(dataSource: dataSource)
         let vc = MasterVC(title: "Contacts", viewModel: viewModel)
         

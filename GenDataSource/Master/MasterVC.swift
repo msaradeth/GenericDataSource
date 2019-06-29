@@ -14,7 +14,8 @@ class MasterVC: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
         collectionView.dataSource = viewModel.dataSource
-        collectionView.register(MasterCell.self, forCellWithReuseIdentifier: MasterCell.cellIdentifier)
+//        collectionView.register(MasterCell.self, forCellWithReuseIdentifier: MasterCell.cellIdentifier)
+        collectionView.register(UINib(nibName: "MasterCell2", bundle: nil), forCellWithReuseIdentifier: MasterCell2.cellIdentifier)
         return collectionView
     }()
     lazy var flowLayout: UICollectionViewFlowLayout = {
@@ -22,7 +23,7 @@ class MasterVC: UIViewController {
         return flowLayout
     }()
     var cellWidth: CGFloat {
-        let width = (collectionView.superview?.bounds.width ?? UIScreen.main.bounds.width) - 40
+        let width = (collectionView.superview?.bounds.width ?? UIScreen.main.bounds.width) - 80
         print("width: ", width)
         return width
     }

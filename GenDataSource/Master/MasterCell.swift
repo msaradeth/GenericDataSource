@@ -46,8 +46,9 @@ class MasterCell: UICollectionViewCell, CellProtocol {
     
     func setupViews() {
         contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
-        
         contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.fillsuperView()
+        
         contentView.addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding.left).isActive = true

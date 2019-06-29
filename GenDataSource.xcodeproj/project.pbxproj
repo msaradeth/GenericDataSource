@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ECBBE3A22C7175D00E0FEB8 /* MasterCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECBBE3822C7175D00E0FEB8 /* MasterCell2.swift */; };
+		0ECBBE3B22C7175D00E0FEB8 /* MasterCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ECBBE3922C7175D00E0FEB8 /* MasterCell2.xib */; };
 		0EEEEEEE22C5BEF500DB7F38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */; };
 		0EEEEEF022C5BEF500DB7F38 /* MasterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEEEF22C5BEF500DB7F38 /* MasterVC.swift */; };
 		0EEEEEF322C5BEF500DB7F38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEEEEF122C5BEF500DB7F38 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0ECBBE3822C7175D00E0FEB8 /* MasterCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCell2.swift; sourceTree = "<group>"; };
+		0ECBBE3922C7175D00E0FEB8 /* MasterCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MasterCell2.xib; sourceTree = "<group>"; };
 		0EEEEEEA22C5BEF500DB7F38 /* GenDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EEEEEEF22C5BEF500DB7F38 /* MasterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterVC.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				0EEEEEEF22C5BEF500DB7F38 /* MasterVC.swift */,
 				5E669E3822C6679800B0C822 /* MasterViewModel.swift */,
 				0EEEEF1D22C5C22C00DB7F38 /* MasterCell.swift */,
+				0ECBBE3822C7175D00E0FEB8 /* MasterCell2.swift */,
+				0ECBBE3922C7175D00E0FEB8 /* MasterCell2.xib */,
 				5E669E3A22C667FC00B0C822 /* Contact.swift */,
 			);
 			path = Master;
@@ -262,6 +268,7 @@
 			files = (
 				0EEEEEF822C5BEF600DB7F38 /* LaunchScreen.storyboard in Resources */,
 				0EEEEEF522C5BEF600DB7F38 /* Assets.xcassets in Resources */,
+				0ECBBE3B22C7175D00E0FEB8 /* MasterCell2.xib in Resources */,
 				0EEEEEF322C5BEF500DB7F38 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +296,7 @@
 			files = (
 				5E669E3B22C667FC00B0C822 /* Contact.swift in Sources */,
 				0EEEEEF022C5BEF500DB7F38 /* MasterVC.swift in Sources */,
+				0ECBBE3A22C7175D00E0FEB8 /* MasterCell2.swift in Sources */,
 				0EEEEF1C22C5C06400DB7F38 /* Extensions.swift in Sources */,
 				0EEEEEEE22C5BEF500DB7F38 /* AppDelegate.swift in Sources */,
 				5E669E3922C6679800B0C822 /* MasterViewModel.swift in Sources */,
