@@ -65,13 +65,20 @@ class MasterCell: UICollectionViewCell, CellProtocol {
     
     //MARK: Self sizing cell - Calc Width and Height
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        super.preferredLayoutAttributesFitting(layoutAttributes)
+        guard let collectionView = self.superview as? UICollectionView,
+            let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return layoutAttributes }
+        
         //calc cell height - contentView.systemLayoutSizeFitting
         setNeedsLayout()
         layoutIfNeeded()
         let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        let itemWidth = flowLayout.getItemWidth(width: collectionView.frame.width, numberOfColumns: 1)
 
         //set cell height and width
+//        layoutAttributes.size = CGSize(width: itemWidth, height: size.height)
         layoutAttributes.frame.size.height = size.height
+//        layoutAttributes.frame.size.width = itemWidth
         
         return layoutAttributes
     }

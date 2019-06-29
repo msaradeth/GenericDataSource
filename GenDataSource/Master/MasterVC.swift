@@ -10,22 +10,32 @@ import UIKit
 
 class MasterVC: UIViewController {
     lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
         collectionView.dataSource = viewModel.dataSource
+        
 //        collectionView.register(MasterCell.self, forCellWithReuseIdentifier: MasterCell.cellIdentifier)
         collectionView.register(UINib(nibName: "MasterCell2", bundle: nil), forCellWithReuseIdentifier: MasterCell2.cellIdentifier)
         return collectionView
     }()
     lazy var flowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        flowLayout.sectionInset.left = 30
-        flowLayout.sectionInset.right = 30
+        flowLayout.sectionInset.left = 0
+        flowLayout.sectionInset.right = 0
+        flowLayout.minimumInteritemSpacing = 2
+        flowLayout.minimumLineSpacing = 4
         return flowLayout
     }()
     
+    var estimatedItemSize: CGSize {
+//        return UICollectionViewFlowLayout.automaticSize
+        
+        let numberOfColumns = UIDevice.current.orientation == .portrait ? 1 : 1
+        let itemWidth = flowLayout.getItemWidth(width: view.frame.width, numberOfColumns: numberOfColumns)
+        print("preferredLayout", itemWidth, collectionView.frame.width, itemWidth)
+        return CGSize(width: itemWidth, height: 100)
+    }
     var viewModel: MasterViewModel
     
     //MARK: init and setup
@@ -38,13 +48,14 @@ class MasterVC: UIViewController {
     func setupViews() {
         view.addSubview(collectionView)
         collectionView.fillsuperView()
+        flowLayout.estimatedItemSize = estimatedItemSize
     }
     
     
     //MARK:  Rotation
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        flowLayout.estimatedItemSize = estimatedItemSize
         flowLayout.invalidateLayout()
     }
     

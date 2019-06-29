@@ -9,7 +9,7 @@
 import UIKit
 
 class MasterCell2: UICollectionViewCell, CellProtocol {
-    static var cellIdentifier: String = "Cell"
+    static var cellIdentifier: String = "MasterCell2"
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
@@ -28,13 +28,9 @@ class MasterCell2: UICollectionViewCell, CellProtocol {
         setNeedsLayout()
         layoutIfNeeded()
         let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
-        let numberOfColumns = UIDevice.current.orientation == .portrait ? 2 : 3
-        let itemWidth = flowLayout.getItemWidth(width: collectionView.frame.width, numberOfColumns: numberOfColumns)
-//        print("preferredLayout", collectionView.frame.width, itemWidth, itemWidth.rounded(.down))
         
         //set cell height and width
         layoutAttributes.frame.size.height = size.height
-        layoutAttributes.frame.size.width =  itemWidth
         
         return layoutAttributes
     }
@@ -48,11 +44,12 @@ extension UICollectionViewFlowLayout {
         let availableWidth = width
             - (minimumInteritemSpacing*numberOfColumns + sectionInset.left + sectionInset.right)
         
-        return availableWidth
+        return availableWidth > 0 ? availableWidth : 0
     }
     
     func getItemWidth(width: CGFloat, numberOfColumns: Int) -> CGFloat {
         let availableWidth = getAvailableWidth(width: width, numberOfColumns: numberOfColumns)
-        return availableWidth / CGFloat(numberOfColumns)
+        let itemWidth = availableWidth / CGFloat(numberOfColumns)
+        return itemWidth > 0 ? itemWidth : 0
     }
 }
