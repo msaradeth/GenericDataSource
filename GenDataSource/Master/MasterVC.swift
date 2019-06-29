@@ -20,13 +20,11 @@ class MasterVC: UIViewController {
     }()
     lazy var flowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        flowLayout.sectionInset.left = 30
+        flowLayout.sectionInset.right = 30
         return flowLayout
     }()
-    var cellWidth: CGFloat {
-        let width = (collectionView.superview?.bounds.width ?? UIScreen.main.bounds.width) - 80
-        print("width: ", width)
-        return width
-    }
     
     var viewModel: MasterViewModel
     
@@ -40,14 +38,13 @@ class MasterVC: UIViewController {
     func setupViews() {
         view.addSubview(collectionView)
         collectionView.fillsuperView()
-        flowLayout.estimatedItemSize.width = cellWidth
     }
     
     
     //MARK:  Rotation
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        flowLayout.estimatedItemSize.width = cellWidth
+        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         flowLayout.invalidateLayout()
     }
     
