@@ -14,6 +14,10 @@ class MasterViewModel: NSObject {
     var dataSource: GenericDataSource<Contact, MasterCell>
     var items: [[Contact]]
     
+    subscript(indexPath: IndexPath) -> Contact {
+        return dataSource.items[indexPath.section][indexPath.row]
+    }
+    
     init(dataSource: GenericDataSource<Contact, MasterCell>) {
         self.dataSource = dataSource
         self.items = dataSource.items 

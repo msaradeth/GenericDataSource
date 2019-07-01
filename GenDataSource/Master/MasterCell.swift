@@ -14,23 +14,30 @@ struct Book {
 }
 
 
-class MasterCell: UICollectionViewCell, CellProtocol {
-    typealias Element = Contact
+class MasterCell: UICollectionViewCell, CellProtocol, SelfSizingCellProtocol {
+    typealias DataType = Contact
     static var cellIdentifier: String = "MasterCell"
-    var padding = UIEdgeInsets(top: 10, left:10, bottom: 10, right: 10)
+    var padding = UIEdgeInsets(top: 0, left:0, bottom: 0, right: 0)
     
     lazy var titleLabel: UILabel = {
         let titleLabel = UILabel(frame: .zero)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
         titleLabel.numberOfLines = 0
+        titleLabel.backgroundColor = UIColor.yellow.withAlphaComponent(0.4)
         return titleLabel
     }()
     lazy var detailLabel: UILabel = {
-        let detailLabel = UILabel()
+        let detailLabel = UILabel(frame: .zero)
         detailLabel.translatesAutoresizingMaskIntoConstraints = false
         detailLabel.numberOfLines = 0
+        detailLabel.backgroundColor = UIColor.cyan.withAlphaComponent(0.4)
         return detailLabel
+    }()
+    lazy var contentViewWidthConstraint: NSLayoutConstraint = {
+//        let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: max(UIScreen.main.bounds.width, UIScreen.main.bounds.height))
+        let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: UIScreen.main.bounds.width)
+        return contentViewWidthConstraint
     }()
     
     override init(frame: CGRect) {
@@ -42,13 +49,13 @@ class MasterCell: UICollectionViewCell, CellProtocol {
     func configure(item: Contact) {
         titleLabel.text = item.firstName
         detailLabel.text = item.lastName
-//        print("configure")
     }
     
     func setupViews() {
-        contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+        contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.fillsuperView()
+        contentViewWidthConstraint.isActive = true
         
         contentView.addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -72,62 +79,31 @@ class MasterCell: UICollectionViewCell, CellProtocol {
 //
 //    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
 //        super.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
-//        guard let collectionView = superview as? UICollectionView, let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return targetSize }
+//        guard let collectionView = superview as? UICollectionView else { return targetSize }
 //
-//        let size = contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
-//
-//        //calc number of columns and Width
+//        //calc CellWidth base on number of column
 //        let numberofColumns = UIDevice.current.orientation.isPortrait ? 1 : 4
-//        let availableWidth = flowLayout.getAvailableWidth(width: collectionView.bounds.width, numberOfColumns: numberofColumns)
-//        let cellWidth = availableWidth / CGFloat(numberofColumns)
+//        let cellWidth = collectionView.getCellWidth(numberOfColumns: numberofColumns)
+//
+//        //set contentView width Constraint
+//        contentViewWidthConstraint.isActive = false
+//        contentViewWidthConstraint.constant = cellWidth
+//        contentViewWidthConstraint.isActive = true
+//        
+//        setNeedsLayout()
+//        layoutIfNeeded()
+//        
+//        //calc cellHeight
+//        let size = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
 //
 //        let cellSize = CGSize(width: cellWidth, height: size.height)
-//        print("systemLayoutSizeFitting: cellSize: ", cellSize, "  size:", size, titleLabel.intrinsicContentSize, detailLabel.intrinsicContentSize)
+//        print("systemLayoutSizeFitting: cellSize: ", cellSize, "  size:", size)
 //
+//        contentViewWidthConstraint.isActive = false
+//        
 //        return cellSize
 //    }
-//
-    
-    
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        super.preferredLayoutAttributesFitting(layoutAttributes)
-        guard let collectionView = self.superview as? UICollectionView,
-            let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return layoutAttributes }
-
-        //calc cell height - contentView.systemLayoutSizeFitting
-        setNeedsLayout()
-        layoutIfNeeded()
-        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
-        
-//        let itemWidth = flowLayout.getItemWidth(width: collectionView.frame.width, numberOfColumns: 1)
-//        //set cell height and width
-////        layoutAttributes.size = CGSize(width: itemWidth, height: size.height)
-//        layoutAttributes.frame.size.height = size.height
-////        layoutAttributes.frame.size.width = itemWidth
-        
-        
-        //calc number of columns
-        let numberofColumns = UIDevice.current.orientation.isPortrait ? 1 : 4
-        let availableWidth = flowLayout.getAvailableWidth(width: collectionView.bounds.width, numberOfColumns: numberofColumns)
-        
-        //calc cell width
-        let cellWidth = availableWidth / CGFloat(numberofColumns)
-        
-        //Calc cell height
-        let cellHeight = titleLabel.intrinsicContentSize.height + detailLabel.intrinsicContentSize.height
-            + flowLayout.sectionInset.left + flowLayout.sectionInset.right
-            + (flowLayout.minimumInteritemSpacing * CGFloat(numberofColumns))
-
-        
-        //set cell width and height
-        let cellSize = CGSize(width: cellWidth, height: cellHeight)
-        print("systemLayoutSizeFitting: cellSize: ", cellSize, "  size:", size, titleLabel.intrinsicContentSize, detailLabel.intrinsicContentSize)
-        layoutAttributes.size = cellSize
-
-        return layoutAttributes
-    }
-
-    
+//    
     override func prepareForReuse() {
         titleLabel.text = nil
         detailLabel.text = nil
@@ -137,5 +113,23 @@ class MasterCell: UICollectionViewCell, CellProtocol {
     }
 }
 
+
+extension MasterCell {
+    static public func getCellHeight(item: Contact, cellWidth: CGFloat, numberOfColumns: Int) -> CGFloat {
+        //setup cell
+        let cell = MasterCell()
+        cell.configure(item: item)
+
+        //set contentView width constraint
+        cell.contentViewWidthConstraint.constant = cellWidth
+                
+        //calc cell height
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
+        let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize)
+    
+        return size.height
+    }
+}
 
 

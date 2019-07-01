@@ -10,18 +10,12 @@ import Foundation
 import UIKit
 
 
-//GenericCell Protocol
-public protocol CellProtocol {
-    associatedtype Element
-    static var cellIdentifier: String {get}
-    func configure(item: Element)
-}
 
 public typealias DidSelectItemCallback = (IndexPath) -> Void
 
 //Generic DataSource Class
 open class GenericDataSource<Element, CellType:UICollectionViewCell>: NSObject, UICollectionViewDataSource
-    where CellType: CellProtocol, Element == CellType.Element {
+    where CellType: CellProtocol, Element == CellType.DataType {
     
     //MARK: init and setup
     var items: [[Element]]

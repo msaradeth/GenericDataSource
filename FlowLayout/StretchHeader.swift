@@ -42,34 +42,34 @@ class StretchHeader: UICollectionViewFlowLayout {
         while currentIndex < count {
             let segmentFrame = CGRect(x: 0, y: lastFrame.maxY + 1.0, width: cvWidth, height: 200.0)
             
-            var segmentRects = [CGRect]()
-            if segment == 1 {
-                segmentRects = [segmentFrame]
-            }else {
-                let horizontalSlices = segmentFrame.dividedIntegral(fraction: 0.5, from: .minXEdge)
-                segmentRects = [horizontalSlices.first, horizontalSlices.second]
-            }
+//            var segmentRects = [CGRect]()
+//            if segment == 1 {
+//                segmentRects = [segmentFrame]
+//            }else {
+//                let horizontalSlices = segmentFrame.dividedIntegral(fraction: 0.5, from: .minXEdge)
+//                segmentRects = [horizontalSlices.first, horizontalSlices.second]
+//            }
         }
         
-        // Create and cache layout attributes for calculated frames.
-        for rect in segmentRects {
-            let attributes = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: currentIndex, section: 0))
-            attributes.frame = rect
-            
-            cachedAttributes.append(attributes)
-            contentBounds = contentBounds.union(lastFrame)
-            
-            currentIndex += 1
-            lastFrame = rect
-        }
-        
-        // Determine the next segment style.
-        if segment == 1 {
-            segmentRects = [segmentFrame]
-        }else {
-            let horizontalSlices = segmentFrame.dividedIntegral(fraction: 0.5, from: .minXEdge)
-            segmentRects = [horizontalSlices.first, horizontalSlices.second]
-        }
+//        // Create and cache layout attributes for calculated frames.
+//        for rect in segmentRects {
+//            let attributes = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: currentIndex, section: 0))
+//            attributes.frame = rect
+//
+//            cachedAttributes.append(attributes)
+//            contentBounds = contentBounds.union(lastFrame)
+//
+//            currentIndex += 1
+//            lastFrame = rect
+//        }
+//
+//        // Determine the next segment style.
+//        if segment == 1 {
+//            segmentRects = [segmentFrame]
+//        }else {
+//            let horizontalSlices = segmentFrame.dividedIntegral(fraction: 0.5, from: .minXEdge)
+//            segmentRects = [horizontalSlices.first, horizontalSlices.second]
+//        }
     }
 
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

@@ -34,7 +34,7 @@ class ColumnFlowLayout: UICollectionViewFlowLayout {
         self.sectionInset = UIEdgeInsets(top: self.minimumInteritemSpacing  , left: 0, bottom: 0, right: 0)
         
         //handles iPhoneX landscape mode (camera)
-        self.sectionInsetReference = .fromSafeArea
+        self.sectionInsetReference = SectionInsetReference.fromSafeArea
         
         print("prepare: 2 ", minimumInteritemSpacing, self.sectionInset, self.sectionInsetReference)
     }

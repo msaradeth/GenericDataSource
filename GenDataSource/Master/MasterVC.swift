@@ -15,7 +15,9 @@ class MasterVC: UIViewController {
         flowLayout.sectionInset.right = 0
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.minimumLineSpacing = 4
-        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        flowLayout.sectionInsetReference = UICollectionViewFlowLayout.SectionInsetReference.fromSafeArea
+//        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
         
         collectionView.alwaysBounceVertical = true
@@ -25,6 +27,7 @@ class MasterVC: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
         collectionView.dataSource = viewModel.dataSource
+        collectionView.delegate = self
         
         collectionView.register(MasterCell.self, forCellWithReuseIdentifier: MasterCell.cellIdentifier)
         collectionView.register(UINib(nibName: "MasterCell2", bundle: nil), forCellWithReuseIdentifier: MasterCell2.cellIdentifier)
@@ -32,6 +35,7 @@ class MasterVC: UIViewController {
     }()
 
 
+    //MARK: viewModel
     var viewModel: MasterViewModel
     
     //MARK: init and setup
@@ -59,9 +63,8 @@ class MasterVC: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
             flowLayout.invalidateLayout()
-            collectionView.reloadData()            
         }
     }
     
@@ -69,22 +72,16 @@ class MasterVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    
 }
 
-//
-//extension MasterVC: UICollectionViewDataSource {
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return viewModel.items.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return viewModel.items[section].count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MasterCell2.cellIdentifier, for: indexPath) as! MasterCell2
-//
-//        cell.configure(item: viewModel.items[indexPath.section][indexPath.row])
-//        return cell
-//    }
-//}
+
+extension MasterVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MasterCell.cellIdentifier, for: indexPath) as! MasterCell
+        
+        let numberOfColumns = UIDevice.current.orientation.isPortrait ? 1 : 4
+        let size = collectionView.getCellSize(cell: cell, item: viewModel[indexPath], numberOfColumns: numberOfColumns)
+        return size
+    }
+}

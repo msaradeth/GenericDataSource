@@ -25,13 +25,13 @@ class MasterCell2: UICollectionViewCell, CellProtocol {
     }
 
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-        guard let collectionView = superview as? UICollectionView, let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return targetSize }
+        guard let collectionView = superview as? UICollectionView else { return targetSize }
         
         let size = contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
    
         //calc number of columns
         let numberofColumns = UIDevice.current.orientation.isPortrait ? 1 : 4
-        let availableWidth = flowLayout.getAvailableWidth(width: collectionView.bounds.width, numberOfColumns: numberofColumns)
+        let availableWidth = collectionView.getAvailableWidth(numberOfColumns: numberofColumns)
         let cellWidth = availableWidth / CGFloat(numberofColumns)
         
         let cellSize = CGSize(width: cellWidth, height: size.height)
@@ -61,18 +61,3 @@ class MasterCell2: UICollectionViewCell, CellProtocol {
 }
 
 
-extension UICollectionViewFlowLayout {
-    func getAvailableWidth(width: CGFloat, numberOfColumns: Int) -> CGFloat {
-        let numberOfColumns = CGFloat(numberOfColumns)
-        let availableWidth = width
-            - (minimumInteritemSpacing*numberOfColumns + sectionInset.left + sectionInset.right)
-        
-        return availableWidth > 0 ? availableWidth : 0
-    }
-    
-    func getItemWidth(width: CGFloat, numberOfColumns: Int) -> CGFloat {
-        let availableWidth = getAvailableWidth(width: width, numberOfColumns: numberOfColumns)
-        let itemWidth = availableWidth / CGFloat(numberOfColumns)
-        return itemWidth > 0 ? itemWidth : 0
-    }
-}
