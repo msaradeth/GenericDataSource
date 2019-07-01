@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0ECBBE3A22C7175D00E0FEB8 /* MasterCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECBBE3822C7175D00E0FEB8 /* MasterCell2.swift */; };
 		0ECBBE3B22C7175D00E0FEB8 /* MasterCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ECBBE3922C7175D00E0FEB8 /* MasterCell2.xib */; };
+		0EEDFFE522C922B900F15811 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDFFE422C922B900F15811 /* ColumnFlowLayout.swift */; };
+		0EEDFFE722C967C500F15811 /* MosaicLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDFFE622C967C500F15811 /* MosaicLayout.swift */; };
+		0EEDFFEA22C9684600F15811 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDFFE922C9684600F15811 /* Utilities.swift */; };
+		0EEDFFEC22C9A98700F15811 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDFFEB22C9A98700F15811 /* DataSource.swift */; };
+		0EEDFFEE22CA39F100F15811 /* StretchHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDFFED22CA39F100F15811 /* StretchHeader.swift */; };
 		0EEEEEEE22C5BEF500DB7F38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */; };
 		0EEEEEF022C5BEF500DB7F38 /* MasterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEEEF22C5BEF500DB7F38 /* MasterVC.swift */; };
 		0EEEEEF322C5BEF500DB7F38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEEEEF122C5BEF500DB7F38 /* Main.storyboard */; };
@@ -43,6 +48,11 @@
 /* Begin PBXFileReference section */
 		0ECBBE3822C7175D00E0FEB8 /* MasterCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCell2.swift; sourceTree = "<group>"; };
 		0ECBBE3922C7175D00E0FEB8 /* MasterCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MasterCell2.xib; sourceTree = "<group>"; };
+		0EEDFFE422C922B900F15811 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
+		0EEDFFE622C967C500F15811 /* MosaicLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicLayout.swift; sourceTree = "<group>"; };
+		0EEDFFE922C9684600F15811 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		0EEDFFEB22C9A98700F15811 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		0EEDFFED22CA39F100F15811 /* StretchHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchHeader.swift; sourceTree = "<group>"; };
 		0EEEEEEA22C5BEF500DB7F38 /* GenDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EEEEEEF22C5BEF500DB7F38 /* MasterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterVC.swift; sourceTree = "<group>"; };
@@ -88,9 +98,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EEDFFE322C9229A00F15811 /* FlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				0EEDFFED22CA39F100F15811 /* StretchHeader.swift */,
+				0EEDFFE422C922B900F15811 /* ColumnFlowLayout.swift */,
+				0EEDFFE622C967C500F15811 /* MosaicLayout.swift */,
+			);
+			path = FlowLayout;
+			sourceTree = "<group>";
+		};
+		0EEDFFE822C9683A00F15811 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0EEDFFE922C9684600F15811 /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		0EEEEEE122C5BEF500DB7F38 = {
 			isa = PBXGroup;
 			children = (
+				0EEDFFE822C9683A00F15811 /* Utilities */,
+				0EEDFFE322C9229A00F15811 /* FlowLayout */,
 				0EEEEEEC22C5BEF500DB7F38 /* GenDataSource */,
 				0EEEEF0122C5BEF600DB7F38 /* GenDataSourceTests */,
 				0EEEEF0C22C5BEF700DB7F38 /* GenDataSourceUITests */,
@@ -158,6 +188,7 @@
 				0ECBBE3822C7175D00E0FEB8 /* MasterCell2.swift */,
 				0ECBBE3922C7175D00E0FEB8 /* MasterCell2.xib */,
 				5E669E3A22C667FC00B0C822 /* Contact.swift */,
+				0EEDFFEB22C9A98700F15811 /* DataSource.swift */,
 			);
 			path = Master;
 			sourceTree = "<group>";
@@ -295,8 +326,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E669E3B22C667FC00B0C822 /* Contact.swift in Sources */,
+				0EEDFFE522C922B900F15811 /* ColumnFlowLayout.swift in Sources */,
+				0EEDFFEA22C9684600F15811 /* Utilities.swift in Sources */,
+				0EEDFFEE22CA39F100F15811 /* StretchHeader.swift in Sources */,
 				0EEEEEF022C5BEF500DB7F38 /* MasterVC.swift in Sources */,
+				0EEDFFE722C967C500F15811 /* MosaicLayout.swift in Sources */,
 				0ECBBE3A22C7175D00E0FEB8 /* MasterCell2.swift in Sources */,
+				0EEDFFEC22C9A98700F15811 /* DataSource.swift in Sources */,
 				0EEEEF1C22C5C06400DB7F38 /* Extensions.swift in Sources */,
 				0EEEEEEE22C5BEF500DB7F38 /* AppDelegate.swift in Sources */,
 				5E669E3922C6679800B0C822 /* MasterViewModel.swift in Sources */,

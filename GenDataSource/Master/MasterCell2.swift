@@ -13,30 +13,53 @@ class MasterCell2: UICollectionViewCell, CellProtocol {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
-    
+
     func configure(item: Contact) {
         titleLabel.text = item.firstName
         detailLabel.text = item.lastName
     }
+    
+    
+    override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
+        return super.systemLayoutSizeFitting(targetSize)
+    }
 
-    //MARK: Self sizing cell - Calc Width and Height
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        guard let collectionView = superview as? UICollectionView,
-            let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return layoutAttributes }
+    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+        guard let collectionView = superview as? UICollectionView, let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return targetSize }
         
-        //calc cell height - contentView.systemLayoutSizeFitting
-        setNeedsLayout()
-        layoutIfNeeded()
-        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        let size = contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
+   
+        //calc number of columns
+        let numberofColumns = UIDevice.current.orientation.isPortrait ? 1 : 4
+        let availableWidth = flowLayout.getAvailableWidth(width: collectionView.bounds.width, numberOfColumns: numberofColumns)
+        let cellWidth = availableWidth / CGFloat(numberofColumns)
         
-        //set cell height and width
-        layoutAttributes.frame.size.height = size.height
+        let cellSize = CGSize(width: cellWidth, height: size.height)
+        print("systemLayoutSizeFitting: cellSize: ", cellSize, "  size:", size)
         
-        return layoutAttributes
+        return cellSize
     }
     
     
+    //    override func systemLayoutSizeFitting(
+    //        _ targetSize: CGSize,
+    //        withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
+    //        verticalFittingPriority: UILayoutPriority) -> CGSize {
+    //
+    //        var contentSize = contentView.systemLayoutSizeFitting(
+    //            targetSize,
+    //            withHorizontalFittingPriority: horizontalFittingPriority,
+    //            verticalFittingPriority: verticalFittingPriority)
+    //
+    ////        contentSize.width = targetSize.width
+    //        contentSize.width = (superview?.bounds.width ?? 0) - 40
+    //
+    //        return contentSize
+    //    }
+    
+    
 }
+
 
 extension UICollectionViewFlowLayout {
     func getAvailableWidth(width: CGFloat, numberOfColumns: Int) -> CGFloat {

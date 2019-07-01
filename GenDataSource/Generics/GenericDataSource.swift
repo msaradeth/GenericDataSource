@@ -12,19 +12,19 @@ import UIKit
 
 //GenericCell Protocol
 public protocol CellProtocol {
-    associatedtype CellType
+    associatedtype Element
     static var cellIdentifier: String {get}
-    func configure(item: CellType)
+    func configure(item: Element)
 }
 
 public typealias DidSelectItemCallback = (IndexPath) -> Void
 
 //Generic DataSource Class
-open class GenericDataSource<Element, Cell: UICollectionViewCell>: NSObject, UICollectionViewDataSource
-    where Cell: CellProtocol, Element == Cell.CellType {
+open class GenericDataSource<Element, CellType:UICollectionViewCell>: NSObject, UICollectionViewDataSource
+    where CellType: CellProtocol, Element == CellType.Element {
     
     //MARK: init and setup
-    fileprivate var items: [[Element]]
+    var items: [[Element]]
     
     public init(values: [Element]) {
         self.items = [values]
@@ -44,7 +44,8 @@ open class GenericDataSource<Element, Cell: UICollectionViewCell>: NSObject, UIC
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.cellIdentifier, for: indexPath) as! Cell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellType.cellIdentifier, for: indexPath) as? CellType
+            else { fatalError("CellType.Element Not Equall GenericDataSource.Element") }
         
         cell.configure(item: items[indexPath.section][indexPath.row])
         return cell
