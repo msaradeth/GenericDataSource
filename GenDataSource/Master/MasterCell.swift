@@ -89,10 +89,10 @@ class MasterCell: UICollectionViewCell, CellProtocol, SelfSizingCellProtocol {
 //        contentViewWidthConstraint.isActive = false
 //        contentViewWidthConstraint.constant = cellWidth
 //        contentViewWidthConstraint.isActive = true
-//        
+//
 //        setNeedsLayout()
 //        layoutIfNeeded()
-//        
+//
 //        //calc cellHeight
 //        let size = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
 //
@@ -100,10 +100,10 @@ class MasterCell: UICollectionViewCell, CellProtocol, SelfSizingCellProtocol {
 //        print("systemLayoutSizeFitting: cellSize: ", cellSize, "  size:", size)
 //
 //        contentViewWidthConstraint.isActive = false
-//        
+//
 //        return cellSize
 //    }
-//    
+//
     override func prepareForReuse() {
         titleLabel.text = nil
         detailLabel.text = nil
@@ -115,21 +115,25 @@ class MasterCell: UICollectionViewCell, CellProtocol, SelfSizingCellProtocol {
 
 
 extension MasterCell {
-    static public func getCellHeight(item: Contact, cellWidth: CGFloat, numberOfColumns: Int) -> CGFloat {
-        //setup cell
-        let cell = MasterCell()
-        cell.configure(item: item)
-
+    func getCellSize(collectionView: UICollectionView, item: DataType, numberOfColumns: Int) -> CGSize {
+        //set up cell
+        configure(item: item)
+        
+        //calc cell Width
+        let cellWidth = collectionView.getCellWidth(numberOfColumns: numberOfColumns)
+        
         //set contentView width constraint
-        cell.contentViewWidthConstraint.constant = cellWidth
-                
+        contentViewWidthConstraint.constant = cellWidth
+        
         //calc cell height
-        cell.setNeedsLayout()
-        cell.layoutIfNeeded()
-        let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize)
-    
-        return size.height
+        setNeedsLayout()
+        layoutIfNeeded()
+        let size = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        
+        return CGSize(width: cellWidth, height: size.height)
     }
+    
+   
 }
 
 
