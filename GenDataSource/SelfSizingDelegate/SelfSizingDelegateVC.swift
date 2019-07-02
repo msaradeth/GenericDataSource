@@ -69,8 +69,11 @@ extension SelfSizingDelegateVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelfSizingDelegateCell.cellIdentifier, for: indexPath) as! SelfSizingDelegateCell
         
+        //calc width base on numberOfColumns
         let numberOfColumns = UIDevice.current.orientation.isPortrait ? 1 : 4
-        let size = cell.getCellSize(collectionView: collectionView, item: viewModel[indexPath], numberOfColumns: numberOfColumns)
+        let cellWidth = collectionView.getCellWidth(numberOfColumns: numberOfColumns)
+        //get cell size base on content
+        let size = cell.getCellSize(cellWidth: cellWidth, item: viewModel[indexPath])
         
         return size
     }

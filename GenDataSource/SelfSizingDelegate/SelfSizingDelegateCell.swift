@@ -35,7 +35,7 @@ class SelfSizingDelegateCell: UICollectionViewCell, CellProtocol {
         return detailLabel
     }()
     lazy var contentViewWidthConstraint: NSLayoutConstraint = {
-        let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: UIScreen.main.bounds.width)
+        let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: 0)
         return contentViewWidthConstraint
     }()
     
@@ -54,7 +54,6 @@ class SelfSizingDelegateCell: UICollectionViewCell, CellProtocol {
         contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.fillsuperView()
-        contentViewWidthConstraint.isActive = true
         
         contentView.addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -70,41 +69,6 @@ class SelfSizingDelegateCell: UICollectionViewCell, CellProtocol {
     }
     
     
-    
-    
-    //MARK: Self sizing cell - Calc Width and Height
-//
-//    override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
-//        return super.systemLayoutSizeFitting(targetSize)
-//    }
-//
-//    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-//        super.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
-//        guard let collectionView = superview as? UICollectionView else { return targetSize }
-//
-//        //calc CellWidth base on number of column
-//        let numberofColumns = UIDevice.current.orientation.isPortrait ? 1 : 4
-//        let cellWidth = collectionView.getCellWidth(numberOfColumns: numberofColumns)
-//
-//        //set contentView width Constraint
-//        contentViewWidthConstraint.isActive = false
-//        contentViewWidthConstraint.constant = cellWidth
-//        contentViewWidthConstraint.isActive = true
-//
-//        setNeedsLayout()
-//        layoutIfNeeded()
-//
-//        //calc cellHeight
-//        let size = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-//
-//        let cellSize = CGSize(width: cellWidth, height: size.height)
-//        print("systemLayoutSizeFitting: cellSize: ", cellSize, "  size:", size)
-//
-//        contentViewWidthConstraint.isActive = false
-//
-//        return cellSize
-//    }
-//
     override func prepareForReuse() {
         titleLabel.text = nil
         detailLabel.text = nil
@@ -116,20 +80,21 @@ class SelfSizingDelegateCell: UICollectionViewCell, CellProtocol {
 
 
 extension SelfSizingDelegateCell {
-    func getCellSize(collectionView: UICollectionView, item: DataType, numberOfColumns: Int) -> CGSize {
+    func getCellSize(cellWidth: CGFloat, item: DataType) -> CGSize {
         //set up cell
         configure(item: item)
         
-        //calc cell Width
-        let cellWidth = collectionView.getCellWidth(numberOfColumns: numberOfColumns)
-        
-        //set contentView width constraint
+        //Temporary activate and set contentViewWidthConstraint prior to calc CellHeight
         contentViewWidthConstraint.constant = cellWidth
+        contentViewWidthConstraint.isActive = true
         
         //calc cell height
         setNeedsLayout()
         layoutIfNeeded()
         let size = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        
+        //Deactive contentViewWidthConstraint
+        contentViewWidthConstraint.isActive = false
         
         return CGSize(width: cellWidth, height: size.height)
     }
