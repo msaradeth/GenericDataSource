@@ -13,13 +13,10 @@ import UIKit
 public protocol CellProtocol {
     associatedtype DataType
     static var cellIdentifier: String {get}
+    var contentViewWidthConstraint: NSLayoutConstraint? {get set}
     func configure(item: DataType)
 }
 
-//Self Sizing Cell
-public protocol SelfSizingCellProtocol {
-    var contentViewWidthConstraint: NSLayoutConstraint {get set}
-}
 
 
 

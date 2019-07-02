@@ -27,7 +27,7 @@ extension UICollectionView {
     //MARK: Generic function to calc cell with and height base on number of columns
     //constraint Model datatype and Cell datatype must be the same
     func getCellSize<CellType: UICollectionViewCell, DataType>(cell: CellType, item: DataType, numberOfColumns: Int) -> CGSize
-        where CellType: CellProtocol, CellType: SelfSizingCellProtocol, DataType == CellType.DataType {
+        where CellType: CellProtocol, DataType == CellType.DataType {
             
         //set up cell
         cell.configure(item: item)
@@ -36,7 +36,7 @@ extension UICollectionView {
         let cellWidth = self.getCellWidth(numberOfColumns: numberOfColumns)
         
         //set contentView width constraint
-        cell.contentViewWidthConstraint.constant = cellWidth
+        cell.contentViewWidthConstraint?.constant = cellWidth
         
         //calc cell height
         cell.setNeedsLayout()

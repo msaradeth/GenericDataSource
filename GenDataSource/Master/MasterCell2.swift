@@ -10,6 +10,7 @@ import UIKit
 
 class MasterCell2: UICollectionViewCell, CellProtocol {
     static var cellIdentifier: String = "MasterCell2"
+    var contentViewWidthConstraint: NSLayoutConstraint?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!

@@ -14,7 +14,7 @@ struct Book {
 }
 
 
-class MasterCell: UICollectionViewCell, CellProtocol, SelfSizingCellProtocol {
+class MasterCell: UICollectionViewCell, CellProtocol {
     typealias DataType = Contact
     static var cellIdentifier: String = "MasterCell"
     var padding = UIEdgeInsets(top: 0, left:0, bottom: 0, right: 0)
@@ -34,7 +34,7 @@ class MasterCell: UICollectionViewCell, CellProtocol, SelfSizingCellProtocol {
         detailLabel.backgroundColor = UIColor.cyan.withAlphaComponent(0.4)
         return detailLabel
     }()
-    lazy var contentViewWidthConstraint: NSLayoutConstraint = {
+    lazy var contentViewWidthConstraint: NSLayoutConstraint? = {
 //        let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: max(UIScreen.main.bounds.width, UIScreen.main.bounds.height))
         let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: UIScreen.main.bounds.width)
         return contentViewWidthConstraint
@@ -55,7 +55,7 @@ class MasterCell: UICollectionViewCell, CellProtocol, SelfSizingCellProtocol {
         contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.fillsuperView()
-        contentViewWidthConstraint.isActive = true
+        contentViewWidthConstraint?.isActive = true
         
         contentView.addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -123,7 +123,7 @@ extension MasterCell {
         let cellWidth = collectionView.getCellWidth(numberOfColumns: numberOfColumns)
         
         //set contentView width constraint
-        contentViewWidthConstraint.constant = cellWidth
+        contentViewWidthConstraint?.constant = cellWidth
         
         //calc cell height
         setNeedsLayout()
