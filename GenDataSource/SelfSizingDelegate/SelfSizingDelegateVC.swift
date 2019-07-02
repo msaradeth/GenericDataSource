@@ -8,38 +8,34 @@
 
 import UIKit
 
-class MasterVC: UIViewController {
+class SelfSizingDelegateVC: UIViewController {
     lazy var collectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()   //ColumnFlowLayout(minColumnWidth: 150, cellHeight: 80)
+        //setup flowLayout
+        let flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset.left = 0
         flowLayout.sectionInset.right = 0
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.minimumLineSpacing = 4
         flowLayout.sectionInsetReference = UICollectionViewFlowLayout.SectionInsetReference.fromSafeArea
-//        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
 
+        //setup CollectionView
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
-        
         collectionView.alwaysBounceVertical = true
         collectionView.indicatorStyle = UICollectionView.IndicatorStyle.default
-        
-        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
         collectionView.dataSource = viewModel.dataSource
         collectionView.delegate = self
-        
-        collectionView.register(MasterCell.self, forCellWithReuseIdentifier: MasterCell.cellIdentifier)
-        collectionView.register(UINib(nibName: "MasterCell2", bundle: nil), forCellWithReuseIdentifier: MasterCell2.cellIdentifier)
+        collectionView.register(SelfSizingDelegateCell.self, forCellWithReuseIdentifier: SelfSizingDelegateCell.cellIdentifier)
         return collectionView
     }()
 
 
     //MARK: viewModel
-    var viewModel: MasterViewModel
+    var viewModel: SelfSizingDeletateViewModel
     
     //MARK: init and setup
-    init(title: String, viewModel: MasterViewModel) {
+    init(title: String, viewModel: SelfSizingDeletateViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         self.title = title
@@ -56,7 +52,7 @@ class MasterVC: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+
             flowLayout.invalidateLayout()
         }
     }
@@ -69,12 +65,11 @@ class MasterVC: UIViewController {
 }
 
 
-extension MasterVC: UICollectionViewDelegateFlowLayout {
+extension SelfSizingDelegateVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MasterCell.cellIdentifier, for: indexPath) as! MasterCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelfSizingDelegateCell.cellIdentifier, for: indexPath) as! SelfSizingDelegateCell
         
         let numberOfColumns = UIDevice.current.orientation.isPortrait ? 1 : 4
-//        let size = collectionView.getCellSize(cell: cell, item: viewModel[indexPath], numberOfColumns: numberOfColumns)
         let size = cell.getCellSize(collectionView: collectionView, item: viewModel[indexPath], numberOfColumns: numberOfColumns)
         
         return size

@@ -1,17 +1,28 @@
 //
-//  CollectionViewCell.swift
+//  SelfSizingCell.swift
 //  GenDataSource
 //
 //  Created by Mike Saradeth on 7/2/19.
 //  Copyright © 2019 Mike Saradeth. All rights reserved.
 //
 
+import Foundation
+
+//
+//  SelfSizingCell.swift
+//  GenDataSource
+//
+//  Created by Mike Saradeth on 6/27/19.
+//  Copyright © 2019 Mike Saradeth. All rights reserved.
+//
+
 import UIKit
 
 
-class CollectionViewCell: UICollectionViewCell, CellProtocol {
+
+class SelfSizingCell: UICollectionViewCell, CellProtocol {
     typealias DataType = Contact
-    static var cellIdentifier: String = "MasterCell"
+    static var cellIdentifier: String = "SelfSizingCell"
     var padding = UIEdgeInsets(top: 0, left:0, bottom: 0, right: 0)
     
     lazy var titleLabel: UILabel = {
@@ -29,11 +40,6 @@ class CollectionViewCell: UICollectionViewCell, CellProtocol {
         detailLabel.backgroundColor = UIColor.cyan.withAlphaComponent(0.4)
         return detailLabel
     }()
-    lazy var contentViewWidthConstraint: NSLayoutConstraint = {
-        //        let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: max(UIScreen.main.bounds.width, UIScreen.main.bounds.height))
-        let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: UIScreen.main.bounds.width)
-        return contentViewWidthConstraint
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +56,6 @@ class CollectionViewCell: UICollectionViewCell, CellProtocol {
         contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.fillsuperView()
-        contentViewWidthConstraint.isActive = true
         
         contentView.addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -64,6 +69,31 @@ class CollectionViewCell: UICollectionViewCell, CellProtocol {
         detailLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding.right).isActive = true
         detailLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding.bottom).isActive = true
     }
+    
+    //MARK: Self sizing cell - call height
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        super.preferredLayoutAttributesFitting(layoutAttributes)
+//        guard let collectionView = superview as? UICollectionView else { return layoutAttributes }
+        
+//        let cellWidth = collectionView.getCellWidth(numberOfColumns: SelfSizingCellVC.numberOfColumns)
+//        contentViewWidthConstraint.constant = cellWidth
+//        if !contentViewWidthConstraint.isActive {
+//            contentViewWidthConstraint.isActive = true
+//        }
+        
+        //calc height
+        layoutIfNeeded()
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        
+        //set height
+//        layoutAttributes.frame.size = CGSize(width: cellWidth, height: size.height)
+        layoutAttributes.frame.size.height = size.height
+        
+        return layoutAttributes
+    }
+    
+    
+    
     
     
     //MARK: Self sizing cell - Calc Width and Height
@@ -109,26 +139,5 @@ class CollectionViewCell: UICollectionViewCell, CellProtocol {
 }
 
 
-extension CollectionViewCell {
-    func getCellSize(collectionView: UICollectionView, item: DataType, numberOfColumns: Int) -> CGSize {
-        //set up cell
-        configure(item: item)
-        
-        //calc cell Width
-        let cellWidth = collectionView.getCellWidth(numberOfColumns: numberOfColumns)
-        
-        //set contentView width constraint
-        contentViewWidthConstraint.constant = cellWidth
-        
-        //calc cell height
-        setNeedsLayout()
-        layoutIfNeeded()
-        let size = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        
-        return CGSize(width: cellWidth, height: size.height)
-    }
-    
-    
-}
 
 

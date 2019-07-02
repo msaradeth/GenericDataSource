@@ -1,8 +1,8 @@
 //
-//  MasterViewModel.swift
+//  SelfSizingViewModel.swift
 //  GenDataSource
 //
-//  Created by Mike Saradeth on 6/28/19.
+//  Created by Mike Saradeth on 7/2/19.
 //  Copyright © 2019 Mike Saradeth. All rights reserved.
 //
 
@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 
-class MasterViewModel: NSObject {
-    var dataSource: GenericDataSource<Contact, MasterCell>
+class SelfSizingNibViewModel: NSObject {
+    var dataSource: GenericDataSource<Contact, MasterCell2>
     var items: [[Contact]]
     
     subscript(indexPath: IndexPath) -> Contact {
         return dataSource.items[indexPath.section][indexPath.row]
     }
     
-    init(dataSource: GenericDataSource<Contact, MasterCell>) {
+    init(dataSource: GenericDataSource<Contact, MasterCell2>) {
         self.dataSource = dataSource
-        self.items = dataSource.items 
+        self.items = dataSource.items
     }
 }

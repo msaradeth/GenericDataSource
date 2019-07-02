@@ -15,21 +15,24 @@
 		0EEDFFEC22C9A98700F15811 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDFFEB22C9A98700F15811 /* DataSource.swift */; };
 		0EEDFFEE22CA39F100F15811 /* StretchHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDFFED22CA39F100F15811 /* StretchHeader.swift */; };
 		0EEEEEEE22C5BEF500DB7F38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */; };
-		0EEEEEF022C5BEF500DB7F38 /* MasterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEEEF22C5BEF500DB7F38 /* MasterVC.swift */; };
+		0EEEEEF022C5BEF500DB7F38 /* SelfSizingDelegateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEEEF22C5BEF500DB7F38 /* SelfSizingDelegateVC.swift */; };
 		0EEEEEF322C5BEF500DB7F38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEEEEF122C5BEF500DB7F38 /* Main.storyboard */; };
 		0EEEEEF522C5BEF600DB7F38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EEEEEF422C5BEF600DB7F38 /* Assets.xcassets */; };
 		0EEEEEF822C5BEF600DB7F38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEEEEF622C5BEF600DB7F38 /* LaunchScreen.storyboard */; };
 		0EEEEF0322C5BEF700DB7F38 /* GenDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEF0222C5BEF700DB7F38 /* GenDataSourceTests.swift */; };
 		0EEEEF0E22C5BEF700DB7F38 /* GenDataSourceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEF0D22C5BEF700DB7F38 /* GenDataSourceUITests.swift */; };
 		0EEEEF1C22C5C06400DB7F38 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEF1B22C5C06400DB7F38 /* Extensions.swift */; };
-		0EEEEF1E22C5C22C00DB7F38 /* MasterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEF1D22C5C22C00DB7F38 /* MasterCell.swift */; };
-		5E669E3922C6679800B0C822 /* MasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E669E3822C6679800B0C822 /* MasterViewModel.swift */; };
+		0EEEEF1E22C5C22C00DB7F38 /* SelfSizingDelegateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEEF1D22C5C22C00DB7F38 /* SelfSizingDelegateCell.swift */; };
+		5E669E3922C6679800B0C822 /* SelfSizingDeletateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E669E3822C6679800B0C822 /* SelfSizingDeletateViewModel.swift */; };
 		5E669E3B22C667FC00B0C822 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E669E3A22C667FC00B0C822 /* Contact.swift */; };
 		5E669E3F22C66B4300B0C822 /* GenericDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E669E3E22C66B4300B0C822 /* GenericDataSource.swift */; };
 		5EABD8F822CAAB20004D6457 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD8F722CAAB20004D6457 /* Protocols.swift */; };
-		5EABD8FE22CBD568004D6457 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD8FD22CBD568004D6457 /* CollectionViewCell.swift */; };
-		5EABD90122CBD6E2004D6457 /* SelfSizingCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD90022CBD6E2004D6457 /* SelfSizingCellVC.swift */; };
-		5EABD90322CBDA1B004D6457 /* SelfSizingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD90222CBDA1B004D6457 /* SelfSizingCellViewModel.swift */; };
+		5EABD90122CBD6E2004D6457 /* SelfSizingNibVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD90022CBD6E2004D6457 /* SelfSizingNibVC.swift */; };
+		5EABD90322CBDA1B004D6457 /* SelfSizingNibViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD90222CBDA1B004D6457 /* SelfSizingNibViewModel.swift */; };
+		5EABD90F22CC0784004D6457 /* SelfSizingCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD90E22CC0784004D6457 /* SelfSizingCellVC.swift */; };
+		5EABD91122CC0794004D6457 /* SelfSizingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD91022CC0794004D6457 /* SelfSizingCellViewModel.swift */; };
+		5EABD91322CC07A5004D6457 /* SelfSizingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD91222CC07A5004D6457 /* SelfSizingCell.swift */; };
+		5EABD91522CC2192004D6457 /* SelfSizingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD91422CC2192004D6457 /* SelfSizingHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +62,7 @@
 		0EEDFFED22CA39F100F15811 /* StretchHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchHeader.swift; sourceTree = "<group>"; };
 		0EEEEEEA22C5BEF500DB7F38 /* GenDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EEEEEEF22C5BEF500DB7F38 /* MasterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterVC.swift; sourceTree = "<group>"; };
+		0EEEEEEF22C5BEF500DB7F38 /* SelfSizingDelegateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingDelegateVC.swift; sourceTree = "<group>"; };
 		0EEEEEF222C5BEF500DB7F38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EEEEEF422C5BEF600DB7F38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EEEEEF722C5BEF600DB7F38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,14 +74,17 @@
 		0EEEEF0D22C5BEF700DB7F38 /* GenDataSourceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenDataSourceUITests.swift; sourceTree = "<group>"; };
 		0EEEEF0F22C5BEF700DB7F38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EEEEF1B22C5C06400DB7F38 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		0EEEEF1D22C5C22C00DB7F38 /* MasterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCell.swift; sourceTree = "<group>"; };
-		5E669E3822C6679800B0C822 /* MasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewModel.swift; sourceTree = "<group>"; };
+		0EEEEF1D22C5C22C00DB7F38 /* SelfSizingDelegateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingDelegateCell.swift; sourceTree = "<group>"; };
+		5E669E3822C6679800B0C822 /* SelfSizingDeletateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingDeletateViewModel.swift; sourceTree = "<group>"; };
 		5E669E3A22C667FC00B0C822 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		5E669E3E22C66B4300B0C822 /* GenericDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDataSource.swift; sourceTree = "<group>"; };
 		5EABD8F722CAAB20004D6457 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		5EABD8FD22CBD568004D6457 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		5EABD90022CBD6E2004D6457 /* SelfSizingCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingCellVC.swift; sourceTree = "<group>"; };
-		5EABD90222CBDA1B004D6457 /* SelfSizingCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingCellViewModel.swift; sourceTree = "<group>"; };
+		5EABD90022CBD6E2004D6457 /* SelfSizingNibVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingNibVC.swift; sourceTree = "<group>"; };
+		5EABD90222CBDA1B004D6457 /* SelfSizingNibViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingNibViewModel.swift; sourceTree = "<group>"; };
+		5EABD90E22CC0784004D6457 /* SelfSizingCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingCellVC.swift; sourceTree = "<group>"; };
+		5EABD91022CC0794004D6457 /* SelfSizingCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingCellViewModel.swift; sourceTree = "<group>"; };
+		5EABD91222CC07A5004D6457 /* SelfSizingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingCell.swift; sourceTree = "<group>"; };
+		5EABD91422CC2192004D6457 /* SelfSizingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,7 @@
 		0EEEEEE122C5BEF500DB7F38 = {
 			isa = PBXGroup;
 			children = (
+				0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */,
 				5EABD8F622CAAB0E004D6457 /* Common */,
 				0EEDFFE822C9683A00F15811 /* Utilities */,
 				0EEDFFE322C9229A00F15811 /* FlowLayout */,
@@ -150,10 +157,10 @@
 		0EEEEEEC22C5BEF500DB7F38 /* GenDataSource */ = {
 			isa = PBXGroup;
 			children = (
-				5E669E3622C6670E00B0C822 /* Generics */,
+				5E669E3722C6672D00B0C822 /* SelfSizingDelegate */,
 				5EABD8FF22CBD6AC004D6457 /* SelfSizingNib */,
-				5E669E3722C6672D00B0C822 /* Master */,
-				0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */,
+				5EABD90D22CC0773004D6457 /* SelfSizingCell */,
+				5E669E3622C6670E00B0C822 /* Generics */,
 				0EEEEEF122C5BEF500DB7F38 /* Main.storyboard */,
 				0EEEEEF422C5BEF600DB7F38 /* Assets.xcassets */,
 				0EEEEEF622C5BEF600DB7F38 /* LaunchScreen.storyboard */,
@@ -188,17 +195,17 @@
 			path = Generics;
 			sourceTree = "<group>";
 		};
-		5E669E3722C6672D00B0C822 /* Master */ = {
+		5E669E3722C6672D00B0C822 /* SelfSizingDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				0EEEEEEF22C5BEF500DB7F38 /* MasterVC.swift */,
-				5E669E3822C6679800B0C822 /* MasterViewModel.swift */,
-				0EEEEF1D22C5C22C00DB7F38 /* MasterCell.swift */,
-				5EABD8FD22CBD568004D6457 /* CollectionViewCell.swift */,
+				0EEEEEEF22C5BEF500DB7F38 /* SelfSizingDelegateVC.swift */,
+				5E669E3822C6679800B0C822 /* SelfSizingDeletateViewModel.swift */,
+				0EEEEF1D22C5C22C00DB7F38 /* SelfSizingDelegateCell.swift */,
 				5E669E3A22C667FC00B0C822 /* Contact.swift */,
 				0EEDFFEB22C9A98700F15811 /* DataSource.swift */,
+				5EABD91422CC2192004D6457 /* SelfSizingHeaderView.swift */,
 			);
-			path = Master;
+			path = SelfSizingDelegate;
 			sourceTree = "<group>";
 		};
 		5EABD8F622CAAB0E004D6457 /* Common */ = {
@@ -213,12 +220,22 @@
 		5EABD8FF22CBD6AC004D6457 /* SelfSizingNib */ = {
 			isa = PBXGroup;
 			children = (
-				5EABD90022CBD6E2004D6457 /* SelfSizingCellVC.swift */,
+				5EABD90022CBD6E2004D6457 /* SelfSizingNibVC.swift */,
 				0ECBBE3822C7175D00E0FEB8 /* MasterCell2.swift */,
 				0ECBBE3922C7175D00E0FEB8 /* MasterCell2.xib */,
-				5EABD90222CBDA1B004D6457 /* SelfSizingCellViewModel.swift */,
+				5EABD90222CBDA1B004D6457 /* SelfSizingNibViewModel.swift */,
 			);
 			path = SelfSizingNib;
+			sourceTree = "<group>";
+		};
+		5EABD90D22CC0773004D6457 /* SelfSizingCell */ = {
+			isa = PBXGroup;
+			children = (
+				5EABD90E22CC0784004D6457 /* SelfSizingCellVC.swift */,
+				5EABD91022CC0794004D6457 /* SelfSizingCellViewModel.swift */,
+				5EABD91222CC07A5004D6457 /* SelfSizingCell.swift */,
+			);
+			path = SelfSizingCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,22 +370,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EABD90F22CC0784004D6457 /* SelfSizingCellVC.swift in Sources */,
 				5E669E3B22C667FC00B0C822 /* Contact.swift in Sources */,
 				0EEDFFE522C922B900F15811 /* ColumnFlowLayout.swift in Sources */,
 				0EEDFFEA22C9684600F15811 /* Utilities.swift in Sources */,
-				5EABD90322CBDA1B004D6457 /* SelfSizingCellViewModel.swift in Sources */,
+				5EABD90322CBDA1B004D6457 /* SelfSizingNibViewModel.swift in Sources */,
+				5EABD91322CC07A5004D6457 /* SelfSizingCell.swift in Sources */,
 				0EEDFFEE22CA39F100F15811 /* StretchHeader.swift in Sources */,
-				0EEEEEF022C5BEF500DB7F38 /* MasterVC.swift in Sources */,
-				5EABD8FE22CBD568004D6457 /* CollectionViewCell.swift in Sources */,
+				0EEEEEF022C5BEF500DB7F38 /* SelfSizingDelegateVC.swift in Sources */,
 				0EEDFFE722C967C500F15811 /* MosaicLayout.swift in Sources */,
 				0ECBBE3A22C7175D00E0FEB8 /* MasterCell2.swift in Sources */,
-				5EABD90122CBD6E2004D6457 /* SelfSizingCellVC.swift in Sources */,
+				5EABD90122CBD6E2004D6457 /* SelfSizingNibVC.swift in Sources */,
 				0EEDFFEC22C9A98700F15811 /* DataSource.swift in Sources */,
 				0EEEEF1C22C5C06400DB7F38 /* Extensions.swift in Sources */,
 				5EABD8F822CAAB20004D6457 /* Protocols.swift in Sources */,
 				0EEEEEEE22C5BEF500DB7F38 /* AppDelegate.swift in Sources */,
-				5E669E3922C6679800B0C822 /* MasterViewModel.swift in Sources */,
-				0EEEEF1E22C5C22C00DB7F38 /* MasterCell.swift in Sources */,
+				5EABD91522CC2192004D6457 /* SelfSizingHeaderView.swift in Sources */,
+				5E669E3922C6679800B0C822 /* SelfSizingDeletateViewModel.swift in Sources */,
+				0EEEEF1E22C5C22C00DB7F38 /* SelfSizingDelegateCell.swift in Sources */,
+				5EABD91122CC0794004D6457 /* SelfSizingCellViewModel.swift in Sources */,
 				5E669E3F22C66B4300B0C822 /* GenericDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,16 +1,4 @@
-//
-//  SelfSizingCellVC.swift
-//  GenDataSource
-//
-//  Created by Mike Saradeth on 7/2/19.
-//  Copyright © 2019 Mike Saradeth. All rights reserved.
-//
-
-
-import UIKit
-
-//
-//  SelfSizingCellNibfileVC.swift
+//  SelfSizingNibVC.swift
 //  NavBarAndHeader
 //
 //  Created by Mike Saradeth on 6/27/19.
@@ -22,7 +10,7 @@ import UIKit
 
 
 
-class SelfSizingCellVC: UICollectionViewController {
+class SelfSizingNibVC: UICollectionViewController {
     var cellWidth: CGFloat {
         if UIDevice.current.orientation.isLandscape {
             return collectionView.getCellWidth(numberOfColumns: 3)
@@ -31,10 +19,10 @@ class SelfSizingCellVC: UICollectionViewController {
         }
     }
 
-    var viewModel: SelfSizingCellViewModel
+    var viewModel: SelfSizingNibViewModel
 
     //MARK: init and setup
-    init(title: String, viewModel: SelfSizingCellViewModel) {
+    init(title: String, viewModel: SelfSizingNibViewModel) {
         self.viewModel = viewModel
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset.left = 0

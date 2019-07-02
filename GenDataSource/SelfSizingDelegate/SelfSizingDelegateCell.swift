@@ -14,9 +14,9 @@ struct Book {
 }
 
 
-class MasterCell: UICollectionViewCell, CellProtocol {
+class SelfSizingDelegateCell: UICollectionViewCell, CellProtocol {
     typealias DataType = Contact
-    static var cellIdentifier: String = "MasterCell"
+    static var cellIdentifier: String = "SelfSizingDelegateCell"
     var padding = UIEdgeInsets(top: 0, left:0, bottom: 0, right: 0)
     
     lazy var titleLabel: UILabel = {
@@ -35,7 +35,6 @@ class MasterCell: UICollectionViewCell, CellProtocol {
         return detailLabel
     }()
     lazy var contentViewWidthConstraint: NSLayoutConstraint = {
-//        let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: max(UIScreen.main.bounds.width, UIScreen.main.bounds.height))
         let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: UIScreen.main.bounds.width)
         return contentViewWidthConstraint
     }()
@@ -69,6 +68,8 @@ class MasterCell: UICollectionViewCell, CellProtocol {
         detailLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding.right).isActive = true
         detailLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding.bottom).isActive = true
     }
+    
+    
     
     
     //MARK: Self sizing cell - Calc Width and Height
@@ -114,7 +115,7 @@ class MasterCell: UICollectionViewCell, CellProtocol {
 }
 
 
-extension MasterCell {
+extension SelfSizingDelegateCell {
     func getCellSize(collectionView: UICollectionView, item: DataType, numberOfColumns: Int) -> CGSize {
         //set up cell
         configure(item: item)
