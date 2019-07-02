@@ -27,6 +27,9 @@
 		5E669E3B22C667FC00B0C822 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E669E3A22C667FC00B0C822 /* Contact.swift */; };
 		5E669E3F22C66B4300B0C822 /* GenericDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E669E3E22C66B4300B0C822 /* GenericDataSource.swift */; };
 		5EABD8F822CAAB20004D6457 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD8F722CAAB20004D6457 /* Protocols.swift */; };
+		5EABD8FE22CBD568004D6457 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD8FD22CBD568004D6457 /* CollectionViewCell.swift */; };
+		5EABD90122CBD6E2004D6457 /* SelfSizingCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD90022CBD6E2004D6457 /* SelfSizingCellVC.swift */; };
+		5EABD90322CBDA1B004D6457 /* SelfSizingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EABD90222CBDA1B004D6457 /* SelfSizingCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		5E669E3A22C667FC00B0C822 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		5E669E3E22C66B4300B0C822 /* GenericDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDataSource.swift; sourceTree = "<group>"; };
 		5EABD8F722CAAB20004D6457 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		5EABD8FD22CBD568004D6457 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		5EABD90022CBD6E2004D6457 /* SelfSizingCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingCellVC.swift; sourceTree = "<group>"; };
+		5EABD90222CBDA1B004D6457 /* SelfSizingCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				5E669E3622C6670E00B0C822 /* Generics */,
+				5EABD8FF22CBD6AC004D6457 /* SelfSizingNib */,
 				5E669E3722C6672D00B0C822 /* Master */,
 				0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */,
 				0EEEEEF122C5BEF500DB7F38 /* Main.storyboard */,
@@ -187,8 +194,7 @@
 				0EEEEEEF22C5BEF500DB7F38 /* MasterVC.swift */,
 				5E669E3822C6679800B0C822 /* MasterViewModel.swift */,
 				0EEEEF1D22C5C22C00DB7F38 /* MasterCell.swift */,
-				0ECBBE3822C7175D00E0FEB8 /* MasterCell2.swift */,
-				0ECBBE3922C7175D00E0FEB8 /* MasterCell2.xib */,
+				5EABD8FD22CBD568004D6457 /* CollectionViewCell.swift */,
 				5E669E3A22C667FC00B0C822 /* Contact.swift */,
 				0EEDFFEB22C9A98700F15811 /* DataSource.swift */,
 			);
@@ -202,6 +208,17 @@
 				5EABD8F722CAAB20004D6457 /* Protocols.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		5EABD8FF22CBD6AC004D6457 /* SelfSizingNib */ = {
+			isa = PBXGroup;
+			children = (
+				5EABD90022CBD6E2004D6457 /* SelfSizingCellVC.swift */,
+				0ECBBE3822C7175D00E0FEB8 /* MasterCell2.swift */,
+				0ECBBE3922C7175D00E0FEB8 /* MasterCell2.xib */,
+				5EABD90222CBDA1B004D6457 /* SelfSizingCellViewModel.swift */,
+			);
+			path = SelfSizingNib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,10 +356,13 @@
 				5E669E3B22C667FC00B0C822 /* Contact.swift in Sources */,
 				0EEDFFE522C922B900F15811 /* ColumnFlowLayout.swift in Sources */,
 				0EEDFFEA22C9684600F15811 /* Utilities.swift in Sources */,
+				5EABD90322CBDA1B004D6457 /* SelfSizingCellViewModel.swift in Sources */,
 				0EEDFFEE22CA39F100F15811 /* StretchHeader.swift in Sources */,
 				0EEEEEF022C5BEF500DB7F38 /* MasterVC.swift in Sources */,
+				5EABD8FE22CBD568004D6457 /* CollectionViewCell.swift in Sources */,
 				0EEDFFE722C967C500F15811 /* MosaicLayout.swift in Sources */,
 				0ECBBE3A22C7175D00E0FEB8 /* MasterCell2.swift in Sources */,
+				5EABD90122CBD6E2004D6457 /* SelfSizingCellVC.swift in Sources */,
 				0EEDFFEC22C9A98700F15811 /* DataSource.swift in Sources */,
 				0EEEEF1C22C5C06400DB7F38 /* Extensions.swift in Sources */,
 				5EABD8F822CAAB20004D6457 /* Protocols.swift in Sources */,

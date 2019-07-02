@@ -17,10 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
      
         let items = DataSource.getData()
-        let dataSource = GenericDataSource<Contact, MasterCell>(values: items)
-        let viewModel = MasterViewModel(dataSource: dataSource)
-        let vc = MasterVC(title: "Contacts", viewModel: viewModel)
+//        let dataSource = GenericDataSource<Contact, MasterCell>(values: items)
+//        let viewModel = MasterViewModel(dataSource: dataSource)
+//        let vc = MasterVC(title: "Contacts", viewModel: viewModel)
         
+        let dataSource = GenericDataSource<Contact, MasterCell2>(values: items)
+        let viewModel = SelfSizingCellViewModel(dataSource: dataSource)
+        let vc = SelfSizingCellVC(title: "Contacts", viewModel: viewModel)
+        
+    
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = UINavigationController(rootViewController: vc)

@@ -50,13 +50,6 @@ class MasterVC: UIViewController {
         collectionView.fillsuperView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if collectionView.numberOfItems(inSection: 0) > 0 {
-            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
-        }
-    }
-
     
     
     //MARK:  Rotation

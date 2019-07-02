@@ -19,14 +19,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="409" height="155"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8P-eK-Lca">
-                        <rect key="frame" x="10" y="39.5" width="42" height="105.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8P-eK-Lca">
+                        <rect key="frame" x="10" y="39.5" width="389" height="105.5"/>
+                        <color key="backgroundColor" red="0.9832213407" green="0.91350442060000003" blue="0.0089621660819999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1t-eD-ZY6">
-                        <rect key="frame" x="10" y="10" width="51.5" height="25.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1t-eD-ZY6">
+                        <rect key="frame" x="10" y="10" width="389" height="25.5"/>
+                        <color key="backgroundColor" red="0.26620076840000001" green="1" blue="0.085956764049999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,9 +38,11 @@
             <color key="backgroundColor" red="0.95636334196891193" green="0.95636334196891193" blue="0.95636334196891193" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="F8P-eK-Lca" firstAttribute="top" secondItem="k1t-eD-ZY6" secondAttribute="bottom" constant="4" id="6aZ-aL-rDQ"/>
-                <constraint firstItem="F8P-eK-Lca" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="8ew-re-7Mt"/>
                 <constraint firstItem="k1t-eD-ZY6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="9KW-DV-PNs"/>
+                <constraint firstAttribute="trailing" secondItem="k1t-eD-ZY6" secondAttribute="trailing" constant="10" id="K8x-Mh-C1B"/>
                 <constraint firstItem="k1t-eD-ZY6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="W2w-QG-JyN"/>
+                <constraint firstItem="F8P-eK-Lca" firstAttribute="centerX" secondItem="k1t-eD-ZY6" secondAttribute="centerX" id="daq-jQ-yIs"/>
+                <constraint firstItem="F8P-eK-Lca" firstAttribute="width" secondItem="k1t-eD-ZY6" secondAttribute="width" id="oiM-I8-NsD"/>
                 <constraint firstAttribute="bottom" secondItem="F8P-eK-Lca" secondAttribute="bottom" constant="10" id="vEG-RU-ilr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>

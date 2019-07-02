@@ -24,26 +24,38 @@ extension UIView {
 //MARK:  UICollectionView extension
 extension UICollectionView {
     
-    //MARK: Generic function to calc cell with and height base on number of columns
-    //constraint Model datatype and Cell datatype must be the same
-    func getCellSize<CellType: UICollectionViewCell, DataType>(cell: CellType, item: DataType, numberOfColumns: Int) -> CGSize
-        where CellType: CellProtocol, DataType == CellType.DataType {
-            
-        //set up cell
-        cell.configure(item: item)
+//    //MARK: Generic function to calc cell with and height base on number of columns
+//    //constraint Model datatype and Cell datatype must be the same
+//    func getCellSize<CellType: UICollectionViewCell, DataType>(cell: CellType, item: DataType, numberOfColumns: Int) -> CGSize
+//        where CellType: CellProtocol, DataType == CellType.DataType {
+//
+//        //set up cell
+//        cell.configure(item: item)
+//
+//        //calc cell Width
+//        let cellWidth = self.getCellWidth(numberOfColumns: numberOfColumns)
+//
+//        //set contentView width constraint
+//        cell.contentViewWidthConstraint?.constant = cellWidth
+//
+//        //calc cell height
+//        cell.setNeedsLayout()
+//        cell.layoutIfNeeded()
+//        let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+//
+//        return CGSize(width: cellWidth, height: size.height)
+//    }
+    
+    
+    
+    //MARK: Get cell Width
+    func getCellWidth(numberOfColumns: Int) -> CGFloat {
+        let availableWidth = getAvailableWidth(numberOfColumns: numberOfColumns)
         
-        //calc cell Width
-        let cellWidth = self.getCellWidth(numberOfColumns: numberOfColumns)
+        //available width divided by number of columns
+        let cellWidth = availableWidth / CGFloat(numberOfColumns)
         
-        //set contentView width constraint
-        cell.contentViewWidthConstraint?.constant = cellWidth
-        
-        //calc cell height
-        cell.setNeedsLayout()
-        cell.layoutIfNeeded()
-        let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        
-        return CGSize(width: cellWidth, height: size.height)
+        return cellWidth > 0 ? cellWidth : 0
     }
     
     
@@ -61,18 +73,7 @@ extension UICollectionView {
         
         return availableWidth > 0 ? availableWidth : 0
     }
-    
-    
-    //MARK: Get cell Width
-    func getCellWidth(numberOfColumns: Int) -> CGFloat {
-        let availableWidth = getAvailableWidth(numberOfColumns: numberOfColumns)
-        
-        //available width divided by number of columns
-        let cellWidth = availableWidth / CGFloat(numberOfColumns)
-        
-        return cellWidth > 0 ? cellWidth : 0
-    }
-    
+
 }
 
 

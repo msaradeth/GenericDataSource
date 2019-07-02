@@ -1,20 +1,15 @@
 //
-//  MasterCell.swift
+//  CollectionViewCell.swift
 //  GenDataSource
 //
-//  Created by Mike Saradeth on 6/27/19.
+//  Created by Mike Saradeth on 7/2/19.
 //  Copyright © 2019 Mike Saradeth. All rights reserved.
 //
 
 import UIKit
 
-struct Book {
-    var title: String
-    var description: String
-}
 
-
-class MasterCell: UICollectionViewCell, CellProtocol {
+class CollectionViewCell: UICollectionViewCell, CellProtocol {
     typealias DataType = Contact
     static var cellIdentifier: String = "MasterCell"
     var padding = UIEdgeInsets(top: 0, left:0, bottom: 0, right: 0)
@@ -35,7 +30,7 @@ class MasterCell: UICollectionViewCell, CellProtocol {
         return detailLabel
     }()
     lazy var contentViewWidthConstraint: NSLayoutConstraint = {
-//        let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: max(UIScreen.main.bounds.width, UIScreen.main.bounds.height))
+        //        let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: max(UIScreen.main.bounds.width, UIScreen.main.bounds.height))
         let contentViewWidthConstraint = self.contentView.widthAnchor.constraint(lessThanOrEqualToConstant: UIScreen.main.bounds.width)
         return contentViewWidthConstraint
     }()
@@ -72,38 +67,38 @@ class MasterCell: UICollectionViewCell, CellProtocol {
     
     
     //MARK: Self sizing cell - Calc Width and Height
-//
-//    override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
-//        return super.systemLayoutSizeFitting(targetSize)
-//    }
-//
-//    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-//        super.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
-//        guard let collectionView = superview as? UICollectionView else { return targetSize }
-//
-//        //calc CellWidth base on number of column
-//        let numberofColumns = UIDevice.current.orientation.isPortrait ? 1 : 4
-//        let cellWidth = collectionView.getCellWidth(numberOfColumns: numberofColumns)
-//
-//        //set contentView width Constraint
-//        contentViewWidthConstraint.isActive = false
-//        contentViewWidthConstraint.constant = cellWidth
-//        contentViewWidthConstraint.isActive = true
-//
-//        setNeedsLayout()
-//        layoutIfNeeded()
-//
-//        //calc cellHeight
-//        let size = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-//
-//        let cellSize = CGSize(width: cellWidth, height: size.height)
-//        print("systemLayoutSizeFitting: cellSize: ", cellSize, "  size:", size)
-//
-//        contentViewWidthConstraint.isActive = false
-//
-//        return cellSize
-//    }
-//
+    //
+    //    override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
+    //        return super.systemLayoutSizeFitting(targetSize)
+    //    }
+    //
+    //    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+    //        super.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
+    //        guard let collectionView = superview as? UICollectionView else { return targetSize }
+    //
+    //        //calc CellWidth base on number of column
+    //        let numberofColumns = UIDevice.current.orientation.isPortrait ? 1 : 4
+    //        let cellWidth = collectionView.getCellWidth(numberOfColumns: numberofColumns)
+    //
+    //        //set contentView width Constraint
+    //        contentViewWidthConstraint.isActive = false
+    //        contentViewWidthConstraint.constant = cellWidth
+    //        contentViewWidthConstraint.isActive = true
+    //
+    //        setNeedsLayout()
+    //        layoutIfNeeded()
+    //
+    //        //calc cellHeight
+    //        let size = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+    //
+    //        let cellSize = CGSize(width: cellWidth, height: size.height)
+    //        print("systemLayoutSizeFitting: cellSize: ", cellSize, "  size:", size)
+    //
+    //        contentViewWidthConstraint.isActive = false
+    //
+    //        return cellSize
+    //    }
+    //
     override func prepareForReuse() {
         titleLabel.text = nil
         detailLabel.text = nil
@@ -114,7 +109,7 @@ class MasterCell: UICollectionViewCell, CellProtocol {
 }
 
 
-extension MasterCell {
+extension CollectionViewCell {
     func getCellSize(collectionView: UICollectionView, item: DataType, numberOfColumns: Int) -> CGSize {
         //set up cell
         configure(item: item)
@@ -133,7 +128,7 @@ extension MasterCell {
         return CGSize(width: cellWidth, height: size.height)
     }
     
-   
+    
 }
 
 
