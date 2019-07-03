@@ -160,7 +160,6 @@
 				5E669E3722C6672D00B0C822 /* SelfSizingDelegate */,
 				5EABD8FF22CBD6AC004D6457 /* SelfSizingNib */,
 				5EABD90D22CC0773004D6457 /* SelfSizingCell */,
-				5E669E3622C6670E00B0C822 /* Generics */,
 				0EEEEEF122C5BEF500DB7F38 /* Main.storyboard */,
 				0EEEEEF422C5BEF600DB7F38 /* Assets.xcassets */,
 				0EEEEEF622C5BEF600DB7F38 /* LaunchScreen.storyboard */,
@@ -187,23 +186,14 @@
 			path = GenDataSourceUITests;
 			sourceTree = "<group>";
 		};
-		5E669E3622C6670E00B0C822 /* Generics */ = {
-			isa = PBXGroup;
-			children = (
-				5E669E3E22C66B4300B0C822 /* GenericDataSource.swift */,
-			);
-			path = Generics;
-			sourceTree = "<group>";
-		};
 		5E669E3722C6672D00B0C822 /* SelfSizingDelegate */ = {
 			isa = PBXGroup;
 			children = (
 				0EEEEEEF22C5BEF500DB7F38 /* SelfSizingDelegateVC.swift */,
 				5E669E3822C6679800B0C822 /* SelfSizingDeletateViewModel.swift */,
 				0EEEEF1D22C5C22C00DB7F38 /* SelfSizingDelegateCell.swift */,
-				5E669E3A22C667FC00B0C822 /* Contact.swift */,
-				0EEDFFEB22C9A98700F15811 /* DataSource.swift */,
 				5EABD91422CC2192004D6457 /* SelfSizingHeaderView.swift */,
+				5E669E3A22C667FC00B0C822 /* Contact.swift */,
 			);
 			path = SelfSizingDelegate;
 			sourceTree = "<group>";
@@ -211,8 +201,10 @@
 		5EABD8F622CAAB0E004D6457 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5E669E3E22C66B4300B0C822 /* GenericDataSource.swift */,
 				0EEEEF1B22C5C06400DB7F38 /* Extensions.swift */,
 				5EABD8F722CAAB20004D6457 /* Protocols.swift */,
+				0EEDFFEB22C9A98700F15811 /* DataSource.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";

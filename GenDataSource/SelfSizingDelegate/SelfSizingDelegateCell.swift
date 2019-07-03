@@ -24,14 +24,14 @@ class SelfSizingDelegateCell: UICollectionViewCell, CellProtocol {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
         titleLabel.numberOfLines = 0
-        titleLabel.backgroundColor = UIColor.yellow.withAlphaComponent(0.4)
+//        titleLabel.backgroundColor = UIColor.yellow.withAlphaComponent(0.4)
         return titleLabel
     }()
     lazy var detailLabel: UILabel = {
         let detailLabel = UILabel(frame: .zero)
         detailLabel.translatesAutoresizingMaskIntoConstraints = false
         detailLabel.numberOfLines = 0
-        detailLabel.backgroundColor = UIColor.cyan.withAlphaComponent(0.4)
+//        detailLabel.backgroundColor = UIColor.cyan.withAlphaComponent(0.4)
         return detailLabel
     }()
     lazy var contentViewWidthConstraint: NSLayoutConstraint = {
@@ -51,7 +51,7 @@ class SelfSizingDelegateCell: UICollectionViewCell, CellProtocol {
     }
     
     func setupViews() {
-        contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        contentView.backgroundColor = UIColor.cyan.withAlphaComponent(0.2)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.fillsuperView()
         

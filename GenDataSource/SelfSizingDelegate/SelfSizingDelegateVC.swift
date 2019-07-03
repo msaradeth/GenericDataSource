@@ -10,23 +10,32 @@ import UIKit
 
 class SelfSizingDelegateVC: UIViewController {
     lazy var collectionView: UICollectionView = {
-        //setup flowLayout
+        //init
         let flowLayout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
+        
+        //setup flowLayout
         flowLayout.sectionInset.left = 0
         flowLayout.sectionInset.right = 0
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.minimumLineSpacing = 4
         flowLayout.sectionInsetReference = UICollectionViewFlowLayout.SectionInsetReference.fromSafeArea
+        //setup header
+        flowLayout.headerReferenceSize = CGSize(width: collectionView.bounds.width, height: 50)
+        flowLayout.sectionHeadersPinToVisibleBounds = true
 
         //setup CollectionView
-        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
         collectionView.alwaysBounceVertical = true
         collectionView.indicatorStyle = UICollectionView.IndicatorStyle.default
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
         collectionView.dataSource = viewModel.dataSource
         collectionView.delegate = self
+        
+        //Register cells
         collectionView.register(SelfSizingDelegateCell.self, forCellWithReuseIdentifier: SelfSizingDelegateCell.cellIdentifier)
+        collectionView.register(SelfSizingHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SelfSizingHeaderView.cellIdentifier)
+        
         return collectionView
     }()
 
@@ -52,7 +61,6 @@ class SelfSizingDelegateVC: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-
             flowLayout.invalidateLayout()
         }
     }
@@ -72,6 +80,7 @@ extension SelfSizingDelegateVC: UICollectionViewDelegateFlowLayout {
         //calc width base on numberOfColumns
         let numberOfColumns = UIDevice.current.orientation.isPortrait ? 1 : 4
         let cellWidth = collectionView.getCellWidth(numberOfColumns: numberOfColumns)
+        
         //get cell size base on content
         let size = cell.getCellSize(cellWidth: cellWidth, item: viewModel[indexPath])
         
