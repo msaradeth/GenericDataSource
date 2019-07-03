@@ -23,27 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let viewModel = SelfSizingCellViewModel(dataSource: dataSource)
 //        let vc = SelfSizingCellVC(title: "Contacts", viewModel: viewModel)
         
+    
         
-        
-//
-        
-        
-//        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values2: items2)
-        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values2: items2, configureHeader: SelfSizingHeaderView.configure(_:_:), cellIdentifierHeader: SelfSizingHeaderView.cellIdentifier)
-//        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values2: items2, configureHeader: { (header, title) in
-//            if let header = header as? SelfSizingHeaderView {
-//                header.configure(title: title)
-//            }
-//        }, cellIdentifierHeader: SelfSizingHeaderView.cellIdentifier)
+////        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values2: items2)
+//        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values2: items2, configureHeader: SelfSizingHeaderView.configure(_:_:), cellIdentifierHeader: SelfSizingHeaderView.cellIdentifier)
+        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values2: items2, configureHeader: { (header, title) in
+            if let header = header as? SelfSizingHeaderView {
+                header.configure(title: title)
+            }
+        }, cellIdentifierHeader: SelfSizingHeaderView.cellIdentifier)
         let viewModel = SelfSizingDeletateViewModel(dataSource: dataSource)
         let vc = SelfSizingDelegateVC(title: "Contacts", viewModel: viewModel)
-        
-        
-        
-//        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values: items)
-//        let viewModel = SelfSizingDeletateViewModel(dataSource: dataSource)
-//        let vc = SelfSizingDelegateVC(title: "Contacts", viewModel: viewModel)
-        
         
         
 //        let dataSource = GenericDataSource<Contact, MasterCell2>(values: items)
@@ -58,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
