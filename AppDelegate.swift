@@ -23,18 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let viewModel = SelfSizingCellViewModel(dataSource: dataSource)
 //        let vc = SelfSizingCellVC(title: "Contacts", viewModel: viewModel)
         
-    
-        
-////        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values2: items2)
-//        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values2: items2, configureHeader: SelfSizingHeaderView.configure(_:_:), cellIdentifierHeader: SelfSizingHeaderView.cellIdentifier)
-        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values2: items2, configureHeader: { (header, title) in
-            if let header = header as? SelfSizingHeaderView {
-                header.configure(title: title)
-            }
-        }, cellIdentifierHeader: SelfSizingHeaderView.cellIdentifier)
-        let viewModel = SelfSizingDeletateViewModel(dataSource: dataSource)
-        let vc = SelfSizingDelegateVC(title: "Contacts", viewModel: viewModel)
-        
         
 //        let dataSource = GenericDataSource<Contact, MasterCell2>(values: items)
 //        let viewModel = SelfSizingNibViewModel(dataSource: dataSource)
@@ -42,6 +30,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
+        
+    
+        
+//        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values2: items2)
+        
+//        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values2: items2, configureHeader: SelfSizingHeaderView.configure(_:_:), cellIdentifierHeader: SelfSizingHeaderView.cellIdentifier)
+        
+        let dataSource = GenericDataSource<Contact, SelfSizingDelegateCell>(values2: items2, configureHeader: { (header, title) in
+            if let header = header as? SelfSizingHeaderView {
+                header.configure(title: title)
+            }
+        }, cellIdentifierHeader: SelfSizingHeaderView.cellIdentifier)
+        
+        let viewModel = SelfSizingDeletateViewModel(dataSource: dataSource)
+        let vc = SelfSizingDelegateVC(title: "Contacts", viewModel: viewModel)
+        
+
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = UINavigationController(rootViewController: vc)

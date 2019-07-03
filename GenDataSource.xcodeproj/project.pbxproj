@@ -118,16 +118,9 @@
 				0EEDFFED22CA39F100F15811 /* StretchHeader.swift */,
 				0EEDFFE422C922B900F15811 /* ColumnFlowLayout.swift */,
 				0EEDFFE622C967C500F15811 /* MosaicLayout.swift */,
-			);
-			path = FlowLayout;
-			sourceTree = "<group>";
-		};
-		0EEDFFE822C9683A00F15811 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
 				0EEDFFE922C9684600F15811 /* Utilities.swift */,
 			);
-			path = Utilities;
+			path = FlowLayout;
 			sourceTree = "<group>";
 		};
 		0EEEEEE122C5BEF500DB7F38 = {
@@ -135,7 +128,6 @@
 			children = (
 				0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */,
 				5EABD8F622CAAB0E004D6457 /* Common */,
-				0EEDFFE822C9683A00F15811 /* Utilities */,
 				0EEDFFE322C9229A00F15811 /* FlowLayout */,
 				0EEEEEEC22C5BEF500DB7F38 /* GenDataSource */,
 				0EEEEF0122C5BEF600DB7F38 /* GenDataSourceTests */,
