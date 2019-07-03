@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+protocol ViewModelDelegate {
+    
+}
 
 class SelfSizingDeletateViewModel: NSObject {
     var dataSource: GenericDataSource<Contact, SelfSizingDelegateCell>
@@ -22,4 +25,8 @@ class SelfSizingDeletateViewModel: NSObject {
         self.dataSource = dataSource
         self.items = dataSource.items 
     }
+}
+
+extension SelfSizingNibViewModel: ViewModelDelegate {
+    
 }

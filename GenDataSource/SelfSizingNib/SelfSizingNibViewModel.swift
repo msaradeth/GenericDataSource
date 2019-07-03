@@ -22,4 +22,10 @@ class SelfSizingNibViewModel: NSObject {
         self.dataSource = dataSource
         self.items = dataSource.items
     }
+    
+    
+    
 }
+
+
+

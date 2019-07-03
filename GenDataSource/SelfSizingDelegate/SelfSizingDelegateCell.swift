@@ -43,11 +43,12 @@ class SelfSizingDelegateCell: UICollectionViewCell, CellProtocol {
         super.init(frame: frame)
         setupViews()
     }
+    var delelegate: ViewModelDelegate?
     
-    
-    func configure(item: Contact) {
+    func configure(item: Contact, delelegate: ViewModelDelegate?) {
         titleLabel.text = item.firstName
         detailLabel.text = item.lastName
+        self.delelegate = delelegate
     }
     
     func setupViews() {
@@ -82,7 +83,7 @@ class SelfSizingDelegateCell: UICollectionViewCell, CellProtocol {
 extension SelfSizingDelegateCell {
     func getCellSize(cellWidth: CGFloat, item: DataType) -> CGSize {
         //set up cell
-        configure(item: item)
+        configure(item: item, delelegate: self.delelegate)
         
         //Temporary activate and set contentViewWidthConstraint prior to calc CellHeight
         contentViewWidthConstraint.constant = cellWidth
