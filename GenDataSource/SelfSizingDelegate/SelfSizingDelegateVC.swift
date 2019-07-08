@@ -38,6 +38,35 @@ class SelfSizingDelegateVC: UIViewController {
         
         return collectionView
     }()
+    lazy var searchController: UISearchController = {
+//        let resultsTableController = SelfSizingDelegateVC(title: "Search", viewModel: self.viewModel)
+//        let searchController = UISearchController(searchResultsController: resultsTableController)
+//        searchController.searchResultsUpdater = self
+//        searchController.searchBar.autocapitalizationType = .none
+//
+//
+////        searchController.delegate = self
+//        searchController.dimsBackgroundDuringPresentation = false // The default is true.
+////        searchController.searchBar.delegate = self // Monitor when the search button is tapped.
+////
+//        /** Search presents a view controller by applying normal view controller presentation semantics.
+//         This means that the presentation moves up the view controller hierarchy until it finds the root
+//         view controller or one that defines a presentation context.
+//         */
+//
+//        /** Specify that this view controller determines how the search controller is presented.
+//         The search controller should be presented modally and match the physical size of this view controller.
+//         */
+//        definesPresentationContext = true
+//
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search"
+        searchController.definesPresentationContext = true
+        
+        return searchController
+    }()
 
 
     //MARK: viewModel
@@ -53,6 +82,8 @@ class SelfSizingDelegateVC: UIViewController {
     func setupViews() {
         view.addSubview(collectionView)
         collectionView.fillsuperView()
+        
+        self.navigationItem.searchController = searchController
     }
     
     
@@ -71,6 +102,17 @@ class SelfSizingDelegateVC: UIViewController {
 
 
 }
+
+extension SelfSizingDelegateVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        print(searchText)
+        print(viewModel.dataSource.items)
+//        viewModel.dataSource.items = viewModel.dataSource.items.filter({$0.contains(where: searchText)})
+        collectionView.reloadData()
+    }
+}
+
 
 
 extension SelfSizingDelegateVC: UICollectionViewDelegateFlowLayout {

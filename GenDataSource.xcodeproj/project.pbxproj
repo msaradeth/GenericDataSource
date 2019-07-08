@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E40525A22D37222007BB464 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40525822D37222007BB464 /* MainVC.swift */; };
+		0E40525B22D37222007BB464 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40525922D37222007BB464 /* MainCell.swift */; };
 		0ECBBE3A22C7175D00E0FEB8 /* MasterCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECBBE3822C7175D00E0FEB8 /* MasterCell2.swift */; };
 		0ECBBE3B22C7175D00E0FEB8 /* MasterCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ECBBE3922C7175D00E0FEB8 /* MasterCell2.xib */; };
 		0EEDFFE522C922B900F15811 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDFFE422C922B900F15811 /* ColumnFlowLayout.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E40525822D37222007BB464 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		0E40525922D37222007BB464 /* MainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		0ECBBE3822C7175D00E0FEB8 /* MasterCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCell2.swift; sourceTree = "<group>"; };
 		0ECBBE3922C7175D00E0FEB8 /* MasterCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MasterCell2.xib; sourceTree = "<group>"; };
 		0EEDFFE422C922B900F15811 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
@@ -112,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E40525722D37215007BB464 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0E40525922D37222007BB464 /* MainCell.swift */,
+				0E40525822D37222007BB464 /* MainVC.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		0EEDFFE322C9229A00F15811 /* FlowLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				0EEEEEED22C5BEF500DB7F38 /* AppDelegate.swift */,
+				0E40525722D37215007BB464 /* Main */,
 				5EABD8F622CAAB0E004D6457 /* Common */,
 				0EEDFFE322C9229A00F15811 /* FlowLayout */,
 				0EEEEEEC22C5BEF500DB7F38 /* GenDataSource */,
@@ -367,8 +381,10 @@
 				5EABD90122CBD6E2004D6457 /* SelfSizingNibVC.swift in Sources */,
 				0EEDFFEC22C9A98700F15811 /* DataSource.swift in Sources */,
 				0EEEEF1C22C5C06400DB7F38 /* Extensions.swift in Sources */,
+				0E40525A22D37222007BB464 /* MainVC.swift in Sources */,
 				5EABD8F822CAAB20004D6457 /* Protocols.swift in Sources */,
 				0EEEEEEE22C5BEF500DB7F38 /* AppDelegate.swift in Sources */,
+				0E40525B22D37222007BB464 /* MainCell.swift in Sources */,
 				5EABD91522CC2192004D6457 /* SelfSizingHeaderView.swift in Sources */,
 				5E669E3922C6679800B0C822 /* SelfSizingDeletateViewModel.swift in Sources */,
 				0EEEEF1E22C5C22C00DB7F38 /* SelfSizingDelegateCell.swift in Sources */,
@@ -549,7 +565,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LP46D328FV;
+				DEVELOPMENT_TEAM = QAJNW7456U;
 				INFOPLIST_FILE = GenDataSource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -567,7 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LP46D328FV;
+				DEVELOPMENT_TEAM = QAJNW7456U;
 				INFOPLIST_FILE = GenDataSource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

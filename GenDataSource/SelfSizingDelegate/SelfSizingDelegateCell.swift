@@ -45,11 +45,12 @@ class SelfSizingDelegateCell: UICollectionViewCell, CellProtocol {
     }
     var delelegate: ViewModelDelegate?
     
-    func configure(item: Contact, delelegate: ViewModelDelegate?) {
+    func configure(item: Contact) {
         titleLabel.text = item.firstName
         detailLabel.text = item.lastName
-        self.delelegate = delelegate
+//        self.delelegate = delelegate
     }
+
     
     func setupViews() {
         contentView.backgroundColor = UIColor.cyan.withAlphaComponent(0.2)
@@ -69,6 +70,7 @@ class SelfSizingDelegateCell: UICollectionViewCell, CellProtocol {
         detailLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding.bottom).isActive = true
     }
     
+
     
     override func prepareForReuse() {
         titleLabel.text = nil
@@ -83,7 +85,7 @@ class SelfSizingDelegateCell: UICollectionViewCell, CellProtocol {
 extension SelfSizingDelegateCell {
     func getCellSize(cellWidth: CGFloat, item: DataType) -> CGSize {
         //set up cell
-        configure(item: item, delelegate: self.delelegate)
+        configure(item: item)
         
         //Temporary activate and set contentViewWidthConstraint prior to calc CellHeight
         contentViewWidthConstraint.constant = cellWidth
